@@ -43,7 +43,7 @@ p {
   background-color: #87ceeb;
   /* border: 2px solid black; */
   border-radius: 6px;
-  padding: 90px 70px 90px 70px;
+  padding: 20px 70px 90px 70px;
 }
 
 .name-temp {
@@ -79,4 +79,14 @@ flex-direction: inherit;
   position: absolute;
   top: 90%;
   left: 70%;
+}
+
+.svgIcon {
+  position: absolute;
+  left: 85%;
+  top: 5%;
+}
+
+.svgIcon:hover {
+  color: gray;
 }

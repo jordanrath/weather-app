@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Weather from './Components/Weather';
+import Weather from './components/Weather';
 import { pageState } from './pageState';
+import './components/FontAwesomeIcons';
 
 const App = () => {
   const [lat, setLat] = useState([]);

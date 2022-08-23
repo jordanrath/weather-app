@@ -1,4 +1,5 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Weather = ({ weatherData }) => {
     const currentTemp = parseInt(weatherData.main.temp);
@@ -14,7 +15,7 @@ const Weather = ({ weatherData }) => {
         <div className='name-temp'>
             <h2>{weatherData.name}</h2>
             <h1>{currentTemp}&deg;</h1>
-            <button className='button' onClick={refresh}/>
+            <FontAwesomeIcon className='svgIcon' icon="fa-solid fa-arrow-rotate-right" onClick={refresh}/>
         </div>
         <div className='app-data'>
                 <p>{weatherData.weather[0].description}</p>
