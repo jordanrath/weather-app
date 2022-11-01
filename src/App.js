@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Weather from './components/Weather';
+import Weather from './Components/Weather';
 import { pageState } from './pageState';
-import './components/FontAwesomeIcons';
+import './Components/FontAwesomeIcons';
 
 const App = () => {
   const [lat, setLat] = useState([]);
@@ -50,3 +50,5 @@ const App = () => {
 }
 
 export default App;
+
+// https://developers.google.com/maps/documentation/geocoding/start

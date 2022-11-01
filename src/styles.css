@@ -103,8 +103,7 @@ flex-direction: inherit;
 }
 
 .zipcode-container {
-  display: inherit;
-  
+  display: inherit;  
 }
 
 .zipcode-form,
@@ -114,7 +113,7 @@ flex-direction: inherit;
   flex-grow: 2;
   width: 100px;
   height: 22px;
-  gap: 2px;
+  gap: 5px;
 }
 
 .zipcode {
@@ -127,6 +126,21 @@ flex-direction: inherit;
   display: inherit;
   justify-content: flex-end;
   width: 80%;
+  border: none;
+  border-radius: 6px;
+}
+
+.zipcode-btn {
+  display: inherit;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.5s;
+  background-color: aliceblue;
+}
+
+.zipcode-btn:hover {
+  background-color: #8efdd8;
 }
 
 .date {
@@ -147,6 +161,7 @@ flex-direction: inherit;
 .svgIcon:hover {
   color: gray;
   transform: rotate( 360deg);
+  cursor: pointer;
 }
 
 .box-container {
@@ -195,5 +210,12 @@ flex-direction: inherit;
 }
 
 .placeholder {
-  border: 8px solid red;
+  background-color: hsl(200, 20%, 80%);
+  z-index: 10;
+  border-radius: .25rem;
+}
+
+.placeholder p {
+  z-index: -1;
+  opacity: 0;
 }

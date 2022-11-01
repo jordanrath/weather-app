@@ -44,7 +44,7 @@ const Weather = ({ weatherData = null, loadingState = pageState.LOADING }) => {
         <div className='current-container'>
             <div className='name-temp'>
                 <h2>{weatherData.name}</h2>
-                <h1>{currentTemp}&deg;</h1>
+                <h1 className={boxClass}>{currentTemp}&deg;</h1>
                 <FontAwesomeIcon className='svgIcon' icon="fa-solid fa-arrow-rotate-right" onClick={refresh}/>
             </div>
             <div className={appDataClass}>
