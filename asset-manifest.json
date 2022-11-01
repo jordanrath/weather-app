@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/jordanrath.github.io./weather-app.git/static/css/main.74a4cba1.css",
+    "main.js": "/jordanrath.github.io./weather-app.git/static/js/main.9c5964cc.js",
+    "index.html": "/jordanrath.github.io./weather-app.git/index.html",
+    "main.74a4cba1.css.map": "/jordanrath.github.io./weather-app.git/static/css/main.74a4cba1.css.map",
+    "main.9c5964cc.js.map": "/jordanrath.github.io./weather-app.git/static/js/main.9c5964cc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.74a4cba1.css",
+    "static/js/main.9c5964cc.js"
+  ]
+}
