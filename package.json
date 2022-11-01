@@ -2,6 +2,7 @@
   "homepage": "https://github.com/jordanrath.github.io./weather-app.git",
   "name": "weather-app",
   "version": "0.1.0",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
