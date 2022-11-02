@@ -40,53 +40,55 @@ const Weather = ({ weatherData = null, loadingState = pageState.LOADING }) => {
     }
     console.log(weatherData)
   return (
-    <div className='app-container'>
-        <div className='current-container'>
-            <div className='name-temp'>
-                <h2>{weatherData.name}</h2>
-                <h1 className={boxClass}>{currentTemp}&deg;</h1>
-                <FontAwesomeIcon className='svgIcon' icon="fa-solid fa-arrow-rotate-right" onClick={refresh}/>
+        <div className='app-container'>
+            <div className='weather-container'>
+            <div className='current-container'>
+                <div className='name-temp'>
+                    <h2>{weatherData.name}</h2>
+                    <h1 className={boxClass}>{currentTemp}&deg;</h1>
+                    <FontAwesomeIcon className='svgIcon' icon="fa-solid fa-arrow-rotate-right" onClick={refresh}/>
+                </div>
+                <div className={appDataClass}>
+                        <p>{description}</p>
+                    <div className='high-low'>
+                        <p>H: {highTemp}&deg;</p>
+                        <p>L: {lowTemp}&deg;</p>
+                    </div>  
+                </div>
+                <div className='zipcode-container'>
+                    <p className='zipcode'>Enter a zipcode:</p>
+                    <Input />
+                </div>
+                <p className='date'>{new Date().getMonth() + 1}/{new Date().getDate()}/{new Date().getFullYear()}</p>
             </div>
-            <div className={appDataClass}>
-                    <p>{description}</p>
-                <div className='high-low'>
-                    <p>H: {highTemp}&deg;</p>
-                    <p>L: {lowTemp}&deg;</p>
-                </div>  
             </div>
-            <div className='zipcode-container'>
-                <p className='zipcode'>Enter a zipcode:</p>
-                <Input />
+            <div className='box-container'>
+                <div className='box sun'>
+                    <p className='icon-text'><FontAwesomeIcon className='icon' icon="fa-solid fa-sun" /> Sunrise</p>
+                    <p className={boxClass}>{sunrise}</p>
+                </div>
+                <div className='box sun'>
+                    <p className='icon-text'><FontAwesomeIcon className='icon' icon="fa-solid fa-moon" /> Sunset</p>
+                    <p className={boxClass}>{sunset}</p>
+                </div>
+                <div className='box humidity'>
+                    <p className='icon-text'><FontAwesomeIcon icon="fa-solid fa-water" /> Humidity</p>
+                    <p className={boxClass}>{humidity}%</p>    
+                </div>
+                <div className='box feels-like'>
+                    <p className='icon-text'><FontAwesomeIcon icon="fa-solid fa-temperature-high" /> Feels Like</p>
+                    <p className={boxClass}>{feelsLike}&deg;</p>    
+                </div>
+                <div className='box wind'>
+                    <p  className='icon-text'><FontAwesomeIcon icon="fa-solid fa-wind" /> Wind</p>
+                    <p className={boxClass}>{speed}mph</p>    
+                </div>
+                <div className='box wind'>
+                    <p className='icon-text'><FontAwesomeIcon icon="fa-solid fa-eye" /> Visibility</p>
+                    <p className={boxClass}>{visibility}mi</p>    
+                </div>
             </div>
-            <p className='date'>{new Date().getMonth() + 1}/{new Date().getDate()}/{new Date().getFullYear()}</p>
         </div>
-        <div className='box-container'>
-            <div className='box sun'>
-                <p className='icon-text'><FontAwesomeIcon className='icon' icon="fa-solid fa-sun" /> Sunrise</p>
-                <p className={boxClass}>{sunrise}</p>
-            </div>
-            <div className='box sun'>
-                <p className='icon-text'><FontAwesomeIcon className='icon' icon="fa-solid fa-moon" /> Sunset</p>
-                <p className={boxClass}>{sunset}</p>
-            </div>
-            <div className='box humidity'>
-                <p className='icon-text'><FontAwesomeIcon icon="fa-solid fa-water" /> Humidity</p>
-                <p className={boxClass}>{humidity}%</p>    
-            </div>
-            <div className='box feels-like'>
-                <p className='icon-text'><FontAwesomeIcon icon="fa-solid fa-temperature-high" /> Feels Like</p>
-                <p className={boxClass}>{feelsLike}&deg;</p>    
-            </div>
-            <div className='box wind'>
-                <p  className='icon-text'><FontAwesomeIcon icon="fa-solid fa-wind" /> Wind</p>
-                <p className={boxClass}>{speed}mph</p>    
-            </div>
-            <div className='box wind'>
-                <p className='icon-text'><FontAwesomeIcon icon="fa-solid fa-eye" /> Visibility</p>
-                <p className={boxClass}>{visibility}mi</p>    
-            </div>
-        </div>
-    </div>
   )
 }
 
