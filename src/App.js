@@ -45,5 +45,3 @@ const App = () => {
 }
 
 export default App;
-
-// https://developers.google.com/maps/documentation/geocoding/start

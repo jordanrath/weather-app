@@ -56,7 +56,7 @@ const Weather = ({ weatherData = null, loadingState = pageState.LOADING, setData
                     </div>  
                 </div>
                 <div className='zipcode-container'>
-                    <p className='zipcode'>Enter a city and state:</p>
+                    <p className='zipcode'>Enter a city and state or zipcode:</p>
                     <Input setData={setData} />
                 </div>
                 <p className='date'>{new Date().getMonth() + 1}/{new Date().getDate()}/{new Date().getFullYear()}</p>
