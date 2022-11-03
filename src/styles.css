@@ -107,6 +107,7 @@ flex-direction: inherit;
   flex-direction: column;
   justify-content: center;
   align-items: center; 
+  gap: 10px;
 }
 
 .zipcode-form,
@@ -144,11 +145,11 @@ flex-direction: inherit;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.5s;
-  background-color: aliceblue;
+  background-color: #879CEB;
 }
 
 .zipcode-btn:hover {
-  background-color: rgb(84, 141, 228);
+  background-color: #87EBD6;
 }
 
 .date {
@@ -167,7 +168,7 @@ flex-direction: inherit;
 }
 
 .svgIcon:hover {
-  color: gray;
+  color: #879CEB;
   transform: rotate( 360deg);
   cursor: pointer;
 }
@@ -210,11 +211,6 @@ flex-direction: inherit;
 
 .box-value {
   font-size: 1.5rem;
-}
-
-.spinner {
-  color: red;
-  animation: rotator 1.4s linear infinite;
 }
 
 .placeholder {
