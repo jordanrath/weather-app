@@ -8,7 +8,7 @@ const App = () => {
   const [long, setLong] = useState([]);
   const [data, setData] = useState([]);
   const [loadingState, setLoadingState] = useState(pageState.LOADING);
-  console.log(loadingState)
+  // console.log(loadingState)
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -23,6 +23,7 @@ const App = () => {
         fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial&appid=92284ab1b40ad9a33e4b15e2e81f1fd1`)
         .then(response => response.json())
         .then(result => {
+          console.log('Data:', result)
           setTimeout(() => { if (result.cod === 200) {
             setData(result);
             setLoadingState(pageState.LOADED);
@@ -30,20 +31,14 @@ const App = () => {
             setLoadingState(pageState.ERROR);
           }
           })
-        }, 30000)
-        }
+        }, 300)
+        } 
   }, [lat, long]);
-
-
 
   return (
     <>
     <div className="App">
-      {/* {(typeof data.main != 'undefined') ? ( */}
-        <Weather weatherData={data} loadingState={loadingState} />
-      {/* ): ( */}
-       {/* <div></div> */}
-      {/* )}   */}
+        <Weather weatherData={data} loadingState={loadingState} setData={setData} />
     </div>
     </>
   );

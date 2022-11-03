@@ -3,7 +3,7 @@ import Input from './Input';
 import { pageState } from '../pageState';
 import classNames from 'classnames';
 
-const Weather = ({ weatherData = null, loadingState = pageState.LOADING }) => {
+const Weather = ({ weatherData = null, loadingState = pageState.LOADING, setData = () => {} }) => {
     const { main, wind, weather = [], visibility: visible = 0, sys } = (weatherData ?? {});
     const { 
         temp: currentTempRaw = 0, 
@@ -38,7 +38,7 @@ const Weather = ({ weatherData = null, loadingState = pageState.LOADING }) => {
     const refresh = () => {
         window.location.reload();
     }
-    console.log(weatherData)
+
   return (
         <div className='app-container'>
             <div className='weather-container'>
@@ -56,8 +56,8 @@ const Weather = ({ weatherData = null, loadingState = pageState.LOADING }) => {
                     </div>  
                 </div>
                 <div className='zipcode-container'>
-                    <p className='zipcode'>Enter a zipcode:</p>
-                    <Input />
+                    <p className='zipcode'>Enter a location:</p>
+                    <Input setData={setData} />
                 </div>
                 <p className='date'>{new Date().getMonth() + 1}/{new Date().getDate()}/{new Date().getFullYear()}</p>
             </div>
