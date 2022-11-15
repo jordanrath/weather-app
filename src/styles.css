@@ -76,7 +76,7 @@ flex-direction: inherit;
 .name-temp h1 {
   display: inherit;
   justify-content: center;
-  padding-top: 10px;
+  /* padding-top: 10px; */
   font-size: 3rem;
   font-weight: lighter;
 }
@@ -84,7 +84,7 @@ flex-direction: inherit;
 .app-data {
   display: flex;
   flex-direction: inherit;
-  padding-top: 10px;
+  /* padding-top: 10px; */
 }
 
 .app-data p {
@@ -213,15 +213,58 @@ flex-direction: inherit;
   font-size: 1.5rem;
 }
 
-.placeholder {
-  background-color: hsl(200, 20%, 80%);
-  z-index: 10;
-  border-radius: .25rem;
+/* .placeholder {
+  background-color: hsl(200, 100%, 100%);
+  z-index: 1000;
+  border-radius: 8px;
 }
 
 .placeholder p {
   z-index: -1;
   opacity: 0;
+} */
+
+.placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 100vw;
+  background: rgb(84, 141, 228);
+  background-image: conic-gradient(white, rgb(84, 141, 228));
+  animation-name: spin;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
+
+.placeholder:after {
+  position: fixed;
+  content: "";
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.box .placeholder,
+.name-temp .placeholder,
+.placeholder .high-low p {
+  font-size: 0;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media only screen and (max-width:500px) {
