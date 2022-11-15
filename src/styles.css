@@ -225,9 +225,9 @@ flex-direction: inherit;
 } */
 
 .placeholder {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative; 
+  left: 40%;
+  transform: translateX(-50%);
   width: 40px;
   height: 40px;
   border-radius: 100vw;
@@ -255,6 +255,8 @@ flex-direction: inherit;
 .name-temp .placeholder,
 .placeholder .high-low p {
   font-size: 0;
+  text-align: center;
+  margin: 0;
 }
 
 @keyframes spin {
