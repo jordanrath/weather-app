@@ -4,7 +4,7 @@ import { pageState } from '../pageState';
 import classNames from 'classnames';
 
 const Weather = ({ weatherData = null, loadingState = pageState.LOADING, setData = () => {} }) => {
-    const { main, wind, weather = [], visibility: visible = 0, sys } = (weatherData ?? {});
+    const { main, wind, weather = [], visibility, sys } = (weatherData ?? {});
     const { 
         temp: currentTempRaw = 0, 
         temp_max: highTempRaw = 0, 
@@ -21,7 +21,7 @@ const Weather = ({ weatherData = null, loadingState = pageState.LOADING, setData
     const feelsLike = parseInt(feelsLikeRaw);
     const speed = parseInt(speedRaw);
     const humidity = parseInt(humidityRaw);
-    const visibility = (visible / 1000);
+    const visibile = (visibility / 1000);
     const sunrise = (new Date(sunriseRaw * 1000)).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
     const sunset = (new Date(sunsetRaw * 1000)).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
     const boxClass = classNames({ 
@@ -85,7 +85,7 @@ const Weather = ({ weatherData = null, loadingState = pageState.LOADING, setData
                 </div>
                 <div className='box wind'>
                     <p className='icon-text'><FontAwesomeIcon icon="fa-solid fa-eye" /> Visibility</p>
-                    <p className={boxClass}>{visibility}mi</p>    
+                    <p className={boxClass}>{visibile}mi</p>    
                 </div>
             </div>
         </div>

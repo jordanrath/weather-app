@@ -10,7 +10,7 @@ export const getWeatherData = async (location) => {
         main, 
         wind, 
         weather = [], 
-        visibility: visible = 0, 
+        visibility = 0, 
         sys, 
         name, 
         cod: statusCode = 500 
@@ -23,7 +23,7 @@ export const getWeatherData = async (location) => {
         main,
         wind,
         weather,
-        visible,
+        visibility,
         sys,
         name,
         statusCode,
