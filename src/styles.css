@@ -10,20 +10,19 @@ html {
 }
 
 #root {
+  height: inherit;
+  width: inherit;
   margin: 0;
   padding: 0;
-  display: flex;
 }
 
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #d3edf8;
-  display: flex;
-  justify-content: center;
-  margin-top: 5%;
   font-family: 'Open Sans', sans-serif;
+  height: 100vh;
+  width: 100vw;
 }
 
 h1,
@@ -38,6 +37,11 @@ p {
   margin: 0;
 }
 
+.App {
+  height: inherit;
+  width: inherit;
+}
+
 .app-container {
   display: flex;
   flex-direction: column;
@@ -45,7 +49,36 @@ p {
   gap: 20px;
   width: 400px;
   color: white;
-  text-shadow: 1px 1px rgb(104, 104, 104);
+  text-shadow: 1px 1px rgb(104, 104, 104); 
+  padding-top: 5%;
+}
+
+.background {
+  background-color: #d3edf8;
+  display: flex;
+  height: inherit;
+  justify-content: center;
+}
+
+.background.clear {
+  background-image: url("./Images/Sun.svg");
+}
+
+.background.clouds {
+  background-image: url("./Images/Clouds.svg");
+}
+
+.background.rain {
+  background-image: url("./Images/Rain.svg");
+}
+
+.background.snow {
+  background-image: url("./Images/Snow.svg");
+}
+
+.weather-container {
+  display: inherit;
+  justify-content: center;
 }
 
 .current-container {

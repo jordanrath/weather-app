@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Weather from './Components/Weather';
 import { pageState } from './pageState';
 import './Components/FontAwesomeIcons';
+import Background from './Components/Background';
 
 const App = () => {
   const [lat, setLat] = useState([]);
@@ -35,10 +36,16 @@ const App = () => {
         } 
   }, [lat, long]);
 
+  const { weather = [] } = data;
+  const [ firstWeather = {} ] = weather;
+  const  { main: weatherType = "Clear" } = firstWeather;
+
   return (
     <>
     <div className="App">
-        <Weather weatherData={data} loadingState={loadingState} setData={setData} />
+        <Background weatherType={weatherType}>
+          <Weather weatherData={data} loadingState={loadingState} setData={setData} />
+        </Background> 
     </div>
     </>
   );

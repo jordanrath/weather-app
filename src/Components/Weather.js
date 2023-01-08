@@ -85,7 +85,7 @@ const Weather = ({ weatherData = null, loadingState = pageState.LOADING, setData
                 </div>
                 <div className='box wind'>
                     <p className='icon-text'><FontAwesomeIcon icon="fa-solid fa-eye" /> Visibility</p>
-                    <p className={boxClass}>{visibile}mi</p>    
+                    <p className={boxClass}>{visibile.toFixed(1)}mi</p>    
                 </div>
             </div>
         </div>
