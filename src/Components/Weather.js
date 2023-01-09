@@ -35,9 +35,9 @@ const Weather = ({ weatherData = null, loadingState = pageState.LOADING, setData
         'error-state': loadingState === pageState.ERROR 
     });
 
-    const refresh = () => {
-        window.location.reload();
-    }
+    // const refresh = () => {
+    //     window.location.reload(false);
+    // }
 
   return (
         <div className='app-container'>
@@ -46,7 +46,7 @@ const Weather = ({ weatherData = null, loadingState = pageState.LOADING, setData
                 <div className='name-temp'>
                     <h2>{weatherData.name}</h2>
                     <h1 className={boxClass}>{currentTemp}&deg;</h1>
-                    <FontAwesomeIcon className='svgIcon' icon="fa-solid fa-arrow-rotate-right" onClick={refresh}/>
+                    {/* <FontAwesomeIcon className='svgIcon' icon="fa-solid fa-arrow-rotate-right" onClick={refresh}/> */}
                 </div>
                 <div className={appDataClass}>
                         <p>{description}</p>
@@ -59,7 +59,7 @@ const Weather = ({ weatherData = null, loadingState = pageState.LOADING, setData
                     <p className='zipcode'>Enter a city and state or zipcode:</p>
                     <Input setData={setData} />
                 </div>
-                <p className='date'>{new Date().getMonth() + 1}/{new Date().getDate()}/{new Date().getFullYear()}</p>
+                {/* <p className='date'>{new Date().getMonth() + 1}/{new Date().getDate()}/{new Date().getFullYear()}</p> */}
             </div>
             </div>
             <div className='box-container'>
