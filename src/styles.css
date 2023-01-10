@@ -45,7 +45,7 @@ p {
 .app-container {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   gap: 20px;
   width: 400px;
   color: white;
@@ -307,7 +307,8 @@ flex-direction: inherit;
   }
 }
 
-@media only screen and (max-width:500px) {
+@media only screen and (max-width:500px),
+            screen and (max-height: 950px) {
   root {
     display: flex;
     justify-content: center;
@@ -332,10 +333,11 @@ flex-direction: inherit;
     align-items: center;
     width: 100%;
     gap: 10px;
+    padding-top: unset;
   }
 
   .weather-container {
-    width: 100%;
+    /* width: 100%; */
   }
 
   .current-container {
@@ -363,5 +365,12 @@ flex-direction: inherit;
     padding: 10px;
     width: 40%;
     height: 80px;
+  }
+}
+
+@media only screen and (max-height:650px) {
+  .background {
+    height: unset;
+    padding: 30px;
   }
 }
