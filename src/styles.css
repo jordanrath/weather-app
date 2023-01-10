@@ -170,6 +170,10 @@ flex-direction: inherit;
   text-overflow: ellipsis;
 }
 
+.zipcode-input::placeholder {
+  opacity: 0.5s;
+}
+
 .zipcode-input:focus-visible {
   outline-color: rgb(84, 141, 228);
 }
