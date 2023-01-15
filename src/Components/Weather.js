@@ -65,11 +65,11 @@ const Weather = ({ weatherData = null, loadingState = pageState.LOADING, setData
             <div className='box-container'>
                 <div className='box sun'>
                     <p className='icon-text'><FontAwesomeIcon className='icon' icon="fa-solid fa-sun" /> Sunrise</p>
-                    <p className={boxClass}>{sunrise}</p>
+                    <p className={boxClass}>{sunrise}(MT)</p>
                 </div>
                 <div className='box sun'>
                     <p className='icon-text'><FontAwesomeIcon className='icon' icon="fa-solid fa-moon" /> Sunset</p>
-                    <p className={boxClass}>{sunset}</p>
+                    <p className={boxClass}>{sunset}(MT)</p>
                 </div>
                 <div className='box humidity'>
                     <p className='icon-text'><FontAwesomeIcon icon="fa-solid fa-water" /> Humidity</p>
