@@ -25,10 +25,8 @@ const Weather = ({ weatherData = null, loadingState = pageState.LOADING, setData
     const sunrise = (new Date(sunriseRaw * 1000)).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
     const sunset = (new Date(sunsetRaw * 1000)).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
     /////////////
-    // const dateToTime = date => date.toLocaleString('en-US', {
-    //     hour: 'numeric',
-    //     minute: 'numeric'
-    //   });
+    //const sunrise = new Date(sunriseRaw * 1000);
+    //const sunriseMins = sunrise.getHours() + ":" + sunrise.getMinutes();
     //////////////
     const boxClass = classNames({ 
         'box-value': true, 
