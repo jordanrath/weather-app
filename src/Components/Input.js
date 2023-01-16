@@ -15,7 +15,7 @@ const Input = ({ setData = () => {} }) => {
   return (
     <form className='zipcode-form'>
         <label>
-            <input type='text' id='zipcode' name='zipcode' className='zipcode-input' placeholder='City, State...' onChange={(e) => {setLocation(e.target.value)}} />
+            <input type='text' id='zipcode' name='zipcode' className='zipcode-input' placeholder='Enter city & state or zipcode...' onChange={(e) => {setLocation(e.target.value)}} />
         </label>
             <input type='submit' value='OK' className='zipcode-btn' onClick={handleClick} />
     </form>

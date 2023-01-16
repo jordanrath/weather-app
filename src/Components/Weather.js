@@ -24,6 +24,12 @@ const Weather = ({ weatherData = null, loadingState = pageState.LOADING, setData
     const visibile = (visibility / 1000);
     const sunrise = (new Date(sunriseRaw * 1000)).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
     const sunset = (new Date(sunsetRaw * 1000)).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+    /////////////
+    // const dateToTime = date => date.toLocaleString('en-US', {
+    //     hour: 'numeric',
+    //     minute: 'numeric'
+    //   });
+    //////////////
     const boxClass = classNames({ 
         'box-value': true, 
         placeholder: loadingState === pageState.LOADING,
@@ -56,7 +62,7 @@ const Weather = ({ weatherData = null, loadingState = pageState.LOADING, setData
                     </div>  
                 </div>
                 <div className='zipcode-container'>
-                    <p className='zipcode'>Enter a city and state or zipcode:</p>
+                    {/* <p className='zipcode'>Enter a city and state or zipcode:</p> */}
                     <Input setData={setData} />
                 </div>
                 {/* <p className='date'>{new Date().getMonth() + 1}/{new Date().getDate()}/{new Date().getFullYear()}</p> */}
@@ -65,11 +71,11 @@ const Weather = ({ weatherData = null, loadingState = pageState.LOADING, setData
             <div className='box-container'>
                 <div className='box sun'>
                     <p className='icon-text'><FontAwesomeIcon className='icon' icon="fa-solid fa-sun" /> Sunrise</p>
-                    <p className={boxClass}>{sunrise}(MT)</p>
+                    <p className={boxClass}>{sunrise}</p>
                 </div>
                 <div className='box sun'>
                     <p className='icon-text'><FontAwesomeIcon className='icon' icon="fa-solid fa-moon" /> Sunset</p>
-                    <p className={boxClass}>{sunset}(MT)</p>
+                    <p className={boxClass}>{sunset}</p>
                 </div>
                 <div className='box humidity'>
                     <p className='icon-text'><FontAwesomeIcon icon="fa-solid fa-water" /> Humidity</p>
