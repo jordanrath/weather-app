@@ -22,6 +22,7 @@ export const getInitialWeatherData = async () => {
       try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=92284ab1b40ad9a33e4b15e2e81f1fd1`)
         initialWeatherData = await parseWeatherData(response.json());
+        console.log(initialWeatherData)
       } catch (error) {
             throw new Error('Fetch API call failed', error);
       }
