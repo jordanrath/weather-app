@@ -8,7 +8,7 @@ const Input = ({ setData = () => {} }) => {
   const handleClick = async (event) => {
     event.preventDefault();
     const data = await getWeatherData(location);
-    console.log(data)
+    console.log('all data', data)
     setData(data);
   }
 
