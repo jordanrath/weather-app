@@ -251,6 +251,7 @@ flex-direction: inherit;
 .icon-text {
   text-shadow: none;
   color: #f0f5f7;
+  text-shadow: .5px .5px #9c9c9c;
   /* color: rgb(84, 142, 228); */
 }
 
