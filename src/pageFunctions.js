@@ -1,4 +1,4 @@
-import { Duration, Instant, ZonedDateTime, ZoneId, ZoneOffset } from "@js-joda/core";
+import { DateTimeFormatter, Duration, Instant, ZonedDateTime, ZoneId, ZoneOffset } from "@js-joda/core";
 
 // Promisification of getCurrentPosition
     const getInitialLatLon = async () => {
@@ -22,7 +22,7 @@ export const getInitialWeatherData = async () => {
       try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=92284ab1b40ad9a33e4b15e2e81f1fd1`)
         initialWeatherData = await parseWeatherData(response.json());
-        console.log(initialWeatherData)
+        console.log('initialWeatherData', initialWeatherData)
       } catch (error) {
             throw new Error('Fetch API call failed', error);
       }
@@ -35,6 +35,7 @@ export const getWeatherData = async (location) => {
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=92284ab1b40ad9a33e4b15e2e81f1fd1`);
         weatherData = await parseWeatherData(response.json());
+        console.log('WD', weatherData)
     } catch (error) {
         throw new Error('Fetch API call failed', error); 
     } 
@@ -45,7 +46,8 @@ export const getWeatherData = async (location) => {
     const parseWeatherData = async (data) => {
         const { 
             main, 
-            wind, 
+            wind,
+            dt, 
             weather = [], 
             visibility = 0, 
             sys, 
@@ -63,7 +65,7 @@ export const getWeatherData = async (location) => {
         let zoneId = null;
 
         try {
-            console.log("offset:", offset)
+            console.log("offset:", offset, 'name', name)
             zoneId = ZoneId.ofOffset("UTC", ZoneOffset.ofHours(Duration.ofSeconds(offset).toHours()));
         } catch (err) {
             console.error(err);
@@ -73,10 +75,17 @@ export const getWeatherData = async (location) => {
         const sunriseZDT = ZonedDateTime.ofInstant(Instant.ofEpochSecond(srEpochSeconds), zoneId);
         const  { sunset: ssEpochSeconds } = sys;
         const sunsetZDT = ZonedDateTime.ofInstant(Instant.ofEpochSecond(ssEpochSeconds), zoneId);
+        
+        const currentLocationTime = ZonedDateTime.ofInstant(Instant.ofEpochSecond(dt), zoneId);
+        const currentLocale = (currentLocationTime instanceof ZonedDateTime)
+        ? currentLocationTime.format(DateTimeFormatter.ofPattern('hh:mm')) //or "HH:mm" for 24 hour
+        : "";
+        console.log('CURRENT TIME', currentLocale)
 
         return {
             main,
             wind,
+            dt,
             weather,
             visibility,
             sys: {...sys, sunriseZDT, sunsetZDT},
