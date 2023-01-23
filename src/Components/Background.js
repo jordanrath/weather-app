@@ -23,7 +23,7 @@ const Background = (props) => {
   }, [setBackground, timeData]);
   
   const { class: backgroundClass } = getBackgroundFromWeatherType(weatherType, isDay);
-  const finalBackgroundClass = classNames(['background', backgroundClass])
+  const finalBackgroundClass = classNames(['background', backgroundClass]);
 
 // destructure name and use popper to add title={name} to show the name on hover
 
@@ -34,4 +34,4 @@ const Background = (props) => {
   )
 }
 
-export default Background
+export default Background;
