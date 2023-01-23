@@ -35,7 +35,7 @@ export const getWeatherData = async (location) => {
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=92284ab1b40ad9a33e4b15e2e81f1fd1`);
         weatherData = await parseWeatherData(response.json());
-        console.log('WD', weatherData)
+        console.log('weatherData', weatherData)
     } catch (error) {
         throw new Error('Fetch API call failed', error); 
     } 
@@ -65,22 +65,33 @@ export const getWeatherData = async (location) => {
         let zoneId = null;
 
         try {
-            console.log("offset:", offset, 'name', name)
             zoneId = ZoneId.ofOffset("UTC", ZoneOffset.ofHours(Duration.ofSeconds(offset).toHours()));
         } catch (err) {
             console.error(err);
         };
 
+        // get sunrise and sunset zone date times
         const  { sunrise: srEpochSeconds } = sys;
         const sunriseZDT = ZonedDateTime.ofInstant(Instant.ofEpochSecond(srEpochSeconds), zoneId);
         const  { sunset: ssEpochSeconds } = sys;
         const sunsetZDT = ZonedDateTime.ofInstant(Instant.ofEpochSecond(ssEpochSeconds), zoneId);
         
+        // get current time of searched location
         const currentLocationTime = ZonedDateTime.ofInstant(Instant.ofEpochSecond(dt), zoneId);
+        
         const currentLocale = (currentLocationTime instanceof ZonedDateTime)
-        ? currentLocationTime.format(DateTimeFormatter.ofPattern('hh:mm')) //or "HH:mm" for 24 hour
-        : "";
-        console.log('CURRENT TIME', currentLocale)
+            ? currentLocationTime.format(DateTimeFormatter.ofPattern('HH:mm')) //or "HH:mm" for 24 hour
+            : "";
+
+        // get sunset and sunrise in the same format to compar to currentLocationTime
+        const searchedSunriseTime = (sunriseZDT instanceof ZonedDateTime) 
+            ? sunriseZDT.format(DateTimeFormatter.ofPattern('HH:mm')) 
+            : "";
+
+        const searchedSunsetTime = (sunsetZDT instanceof ZonedDateTime) 
+            ? sunsetZDT.format(DateTimeFormatter.ofPattern('HH:mm')) 
+            : "";
+            console.log('CURRENT TIME', currentLocale, 'SUNRISE TIME', searchedSunriseTime, 'SUNSET TIME', searchedSunsetTime)
 
         return {
             main,
@@ -94,6 +105,7 @@ export const getWeatherData = async (location) => {
             lon,
             offset,
             statusCode,
-            zoneId
+            zoneId,
+            timeData: {currentLocale, searchedSunriseTime, searchedSunsetTime}
         };
     };

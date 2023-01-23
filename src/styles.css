@@ -77,6 +77,22 @@ p {
   background-image: url("./Images/Snow.svg");
 }
 
+.background.clear-night {
+  background-image: url("./Images/SunNight.svg");
+}
+
+.background.clouds-night {
+  background-image: url("./Images/CloudsNight.svg");
+}
+
+.background.rain-night {
+  background-image: url("./Images/RainNight.svg");
+}
+
+.background.snow-night {
+  background-image: url("./Images/SnowNight.svg");
+}
+
 .weather-container {
   justify-content: center;
 }
@@ -227,6 +243,17 @@ flex-direction: inherit;
   box-shadow: inset 0 0 0 1px rgb(255 255 255 / 20%), 0 4px 8px rgb(17 20 24 / 40%), 0 12px 16px 6px rgb(17 20 24 / 20%);
   font-size: 1rem;
   gap: 10px;
+}
+
+.background.clear-night .current-container,
+.background.clouds-night .current-container,
+.background.rain-night .current-container,
+.background.snow-night .current-container,
+.background.clear-night .box,
+.background.clouds-night .box,
+.background.rain-night .box,
+.background.snow-night .box {
+  background-color: rgba(83, 83, 83, 0.8);
 }
 
 .sun,

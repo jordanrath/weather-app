@@ -4,7 +4,7 @@ import { pageState } from '../pageState';
 import classNames from 'classnames';
 import { DateTimeFormatter, ZonedDateTime } from '@js-joda/core';
 
-const Weather = ({ weatherData = null, loadingState = pageState.LOADING, setData = () => {}, setLoadingState = () => {} }) => {
+const Weather = ({ weatherData = null, loadingState = pageState.LOADING, setData = () => {} }) => {
     const { main, wind, weather = [], visibility, sys } = (weatherData ?? {});
     const { 
         temp: currentTempRaw = 0, 
@@ -23,12 +23,10 @@ const Weather = ({ weatherData = null, loadingState = pageState.LOADING, setData
     const speed = parseInt(speedRaw);
     const humidity = parseInt(humidityRaw);
     const visibile = (visibility / 1000);
-    // const sunrise = (new Date(sunriseRaw * 1000)).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
-    // const sunset = (new Date(sunsetRaw * 1000)).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
     const sunriseZDT = (sunriseRaw instanceof ZonedDateTime) 
         ? sunriseRaw.format(DateTimeFormatter.ofPattern('hh:mm')) 
         : "";
-        const sunsetZDT = (sunsetRaw instanceof ZonedDateTime) 
+    const sunsetZDT = (sunsetRaw instanceof ZonedDateTime) 
         ? sunsetRaw.format(DateTimeFormatter.ofPattern('hh:mm')) 
         : "";
     const boxClass = classNames({ 

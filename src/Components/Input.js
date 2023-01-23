@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { getWeatherData } from '../pageFunctions';
 
+//add dropdown to display options for locations with same name
+
 //add useState location to check what is typed into the input... special characters, max length, min length, etc...
 const Input = ({ setData = () => {} }) => {
   const [location, setLocation] = useState('');

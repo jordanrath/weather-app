@@ -9,7 +9,7 @@ const App = () => {
   const [data, setData] = useState([]);
   const [loadingState, setLoadingState] = useState(pageState.LOADING);
 
-  const { weather = [] } = data;
+  const { weather = [], timeData } = data;
   const [ firstWeather = {} ] = weather;
   const  { main: weatherType = "Clear" } = firstWeather;
 
@@ -32,7 +32,7 @@ const App = () => {
   return (
     <>
     <div className="App">
-        <Background weatherType={weatherType}>
+        <Background weatherType={weatherType} timeData={timeData} >
           <Weather weatherData={data} loadingState={loadingState} setData={setData} setLoadingState={setLoadingState} />
         </Background> 
     </div>
