@@ -22,7 +22,7 @@ const Input = ({ setData = () => {} }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setInputValue('')
-}
+  }
 
   return (
     <form className='zipcode-form'>

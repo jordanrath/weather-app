@@ -50,8 +50,7 @@ const BackgroundData = {
         THUNDERSTORM: 'Thunderstorm',
         DRIZZLE: 'Drizzle',
         SNOW: 'Snow',
-    };
-
+    };  
     const getBackgroundFromWeatherType = (weatherType = "Clear", isDay) => {
        if (isDay) {
                 switch(weatherType) {
