@@ -80,7 +80,7 @@ export const getWeatherData = async (location) => {
         const currentLocationTime = ZonedDateTime.ofInstant(Instant.ofEpochSecond(dt), zoneId);
         
         const currentLocale = (currentLocationTime instanceof ZonedDateTime)
-            ? currentLocationTime.format(DateTimeFormatter.ofPattern('HH:mm')) //or "HH:mm" for 24 hour
+            ? currentLocationTime.format(DateTimeFormatter.ofPattern('HH:mm'))
             : "";
 
         // get sunset and sunrise in the same format to compar to currentLocationTime
