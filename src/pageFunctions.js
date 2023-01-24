@@ -1,6 +1,5 @@
 import { DateTimeFormatter, Duration, Instant, ZonedDateTime, ZoneId, ZoneOffset } from "@js-joda/core";
 
-// Promisification of getCurrentPosition
     const getInitialLatLon = async () => {
         return new Promise((res, rej) => {
             navigator.geolocation.getCurrentPosition(
@@ -41,7 +40,6 @@ export const getWeatherData = async (location) => {
     } 
     return weatherData;
 };
-
 
     const parseWeatherData = async (data) => {
         const { 

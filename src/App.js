@@ -11,7 +11,7 @@ const App = () => {
 
   const { weather = [], timeData } = data;
   const [ firstWeather = {} ] = weather;
-  const  { main: weatherType = "Clear" } = firstWeather;
+  const { main: weatherType = "Clear" } = firstWeather;
 
   useEffect(() => {
     const handleInitialLoad = async () => {

@@ -26,7 +26,6 @@ const Background = (props) => {
   const finalBackgroundClass = classNames(['background', backgroundClass]);
 
 // destructure name and use popper to add title={name} to show the name on hover
-
   return (
     <div className={finalBackgroundClass}>
         {children}
