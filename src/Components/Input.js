@@ -14,6 +14,7 @@ const Input = ({ setData = () => {} }) => {
     setData(data);
   }
 
+  //handle user typed input
   const handleInputChange= (event) => {
     setInputValue(event.target.value);
   }
