@@ -13,6 +13,7 @@ const App = () => {
   const [ firstWeather = {} ] = weather;
   const { main: weatherType = "Clear" } = firstWeather;
 
+  //handle the state of page loads
   useEffect(() => {
     const handleInitialLoad = async () => {
       setLoadingState(pageState.LOADING);
@@ -28,7 +29,7 @@ const App = () => {
     handleInitialLoad();
   }, [setData, setLoadingState]);
   
-
+  //render the background component with the weather component as its child
   return (
     <>
     <div className="App">
