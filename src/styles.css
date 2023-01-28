@@ -273,23 +273,11 @@ flex-direction: inherit;
   text-shadow: none;
   color: #f0f5f7;
   text-shadow: .5px .5px #9c9c9c;
-  /* color: rgb(84, 142, 228); */
 }
 
 .box-value {
   font-size: 1.5rem;
 }
-
-/* .placeholder {
-  background-color: hsl(200, 100%, 100%);
-  z-index: 1000;
-  border-radius: 8px;
-}
-
-.placeholder p {
-  z-index: -1;
-  opacity: 0;
-} */
 
 .placeholder {
   position: relative; 
