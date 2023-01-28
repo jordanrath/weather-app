@@ -7,6 +7,7 @@ const Background = (props) => {
   const { weatherType, children, timeData = {} } = props;
   const [isDay, setIsDay] = useState(true);
     
+  // destructure timeData to pass the correct data to setIsDay
   const setBackground = useCallback(
     () => {
       const { 
