@@ -7,6 +7,7 @@ const Input = ({ setData = () => {} }) => {
   const [location, setLocation] = useState('');
   const [inputValue, setInputValue] = useState('');
   
+  // handle weather fetch
   const handleClick = async (event) => {
     event.preventDefault();
     const data = await getWeatherData(location);
