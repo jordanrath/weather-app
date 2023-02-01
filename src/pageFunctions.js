@@ -94,6 +94,7 @@ export const getWeatherData = async (location) => {
             : "";
             console.log('CURRENT TIME', currentLocale, 'SUNRISE TIME', searchedSunriseTime, 'SUNSET TIME', searchedSunsetTime)
 
+        // return data
         return {
             main,
             wind,
