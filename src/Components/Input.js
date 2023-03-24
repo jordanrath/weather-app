@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import functions from '../Data/CityData';
 import { getWeatherData } from '../pageFunctions';
 
 // add dropdown to display options for locations with same name
@@ -17,6 +18,7 @@ const Input = ({ setData = () => {} }) => {
   // handle user typed input
   const handleInputChange= (event) => {
     setInputValue(event.target.value);
+    console.log(functions)
   }
 
   // handle the submit event on the form

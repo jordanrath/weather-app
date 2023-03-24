@@ -6,7 +6,7 @@ const findByCityName = (cityNameRaw) => {
     }
 
     // load contents of json file into memory
-    const cityData = import('/Data/CityData.json');
+    const cityData = import('../Data/CityDataStored.json');
 
     //filter json data based off user input
     const matches = cityData.filter(({ cityInfo }) => {
@@ -15,10 +15,10 @@ const findByCityName = (cityNameRaw) => {
     });
 
     //apply sorts to results
-
+     
 
     //return results
-
+    console.log(matches.name)
 
 };
 
