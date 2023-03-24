@@ -92,7 +92,6 @@ export const getWeatherData = async (location) => {
         const searchedSunsetTime = (sunsetZDT instanceof ZonedDateTime) 
             ? sunsetZDT.format(DateTimeFormatter.ofPattern('HH:mm')) 
             : "";
-            console.log('CURRENT TIME', currentLocale, 'SUNRISE TIME', searchedSunriseTime, 'SUNSET TIME', searchedSunsetTime)
 
         return {
             main,
