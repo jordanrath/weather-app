@@ -7,7 +7,8 @@ import { getWeatherData } from '../pageFunctions';
 const Input = ({ setData = () => {} }) => {
   const [location, setLocation] = useState('');
   const [inputValue, setInputValue] = useState('');
-  
+  const { findByCityName } = functions;
+
   // handle weather fetch
   const handleClick = async (event) => {
     event.preventDefault();
@@ -18,19 +19,19 @@ const Input = ({ setData = () => {} }) => {
   // handle user typed input
   const handleInputChange= (event) => {
     setInputValue(event.target.value);
-    console.log(functions)
+    console.log(functions);
   }
 
   // handle the submit event on the form
   const handleSubmit = (event) => {
     event.preventDefault();
-    setInputValue('')
+    setInputValue('');
   }
 
   return (
     <form className='zipcode-form'>
         <label>
-            <input type='text' id='zipcode' name='zipcode' className='zipcode-input' value={inputValue} placeholder='Enter city & state or zipcode...' onChange={(e) => {setLocation(e.target.value); handleInputChange(e)}} />
+            <input type='text' id='zipcode' name='zipcode' className='zipcode-input' value={inputValue} placeholder='Enter city & state or zipcode...' onChange={(e) => {setLocation(e.target.value); handleInputChange(e);}} />
         </label>
             <input type='submit' value='OK' className='zipcode-btn' onClick={(e) => {handleClick(e); handleSubmit(e);}} />
     </form>

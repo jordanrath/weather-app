@@ -1,4 +1,6 @@
 const findByCityName = (cityNameRaw) => {
+    
+
     //validate and clean user input
     const cityName = (typeof cityNameRaw === "string" ? cityNameRaw.trim() : "");
     if (cityName === "") {
