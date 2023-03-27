@@ -4,7 +4,6 @@ import functions from '../Data/CityData';
 import { getWeatherData } from '../pageFunctions';
 import { Popper } from 'react-popper';
 
-
 const { findByCityName } = functions;
 
 // add dropdown to display options for locations with same name
@@ -71,13 +70,14 @@ const Input = ({ setData = () => {} }) => {
 
   return (
     <form className='input-form'>
+            <span className="material-symbols-outlined">search</span>
             <input
               type='text' 
               id='input' 
               name='input' 
               className='input' 
               value={inputValue} 
-              placeholder='Enter city & state or zipcode...'
+              placeholder='Search for a city...'
               autoComplete='off' 
               onChange={handleInputChange}
             />
