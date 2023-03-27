@@ -60,7 +60,7 @@ p {
   gap: 20px;
   width: 400px;
   color: white;
-  text-shadow: 1px 1px rgb(104, 104, 104); 
+  text-shadow: .5px .5px rgb(104, 104, 104); 
   padding-top: 5%;
 }
 
