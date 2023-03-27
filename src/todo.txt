@@ -1,2 +1,2 @@
 use keydown to set location based on typed text
-use arrow keys to navigate choices
+use arrow keys to navigate choices (highlighted aka selected state)
