@@ -253,7 +253,7 @@ width: inherit;
 
 /* ---Add color change on mouse wheel scroll --- */
 ::-webkit-scrollbar-track {
-  background: #2c2c2c;
+  background: rgb(192, 234, 250);
   border-bottom-right-radius: 6px;
 }
 
@@ -263,9 +263,29 @@ width: inherit;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #879CEB;
+  background: #6082fd;
 }
 
+.background.clear-night ::-webkit-scrollbar-track,
+.background.clouds-night ::-webkit-scrollbar-track,
+.background.rain-night ::-webkit-scrollbar-track,
+.background.snow-night ::-webkit-scrollbar-track {
+  background: #2c2c2c;
+}
+
+.background.clear-night ::-webkit-scrollbar-thumb,
+.background.clouds-night ::-webkit-scrollbar-thumb,
+.background.rain-night ::-webkit-scrollbar-thumb,
+.background.snow-night ::-webkit-scrollbar-thumb {
+  background: #a3a3a3;
+}
+
+.background.clear-night ::-webkit-scrollbar-thumb:hover,
+.background.clouds-night ::-webkit-scrollbar-thumb:hover,
+.background.rain-night ::-webkit-scrollbar-thumb:hover,
+.background.snow-night ::-webkit-scrollbar-thumb:hover {
+  background: #6082fd;
+}
 
 .date {
   position: absolute;
