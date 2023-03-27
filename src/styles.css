@@ -195,7 +195,7 @@ width: inherit;
 
 .popper {
   position: fixed;
-  transform: translateY(30px) translateX(0);
+  transform: translateY(0px) translateX(0);
   display: inherit;
   flex-direction: column;
   width: 360px;
