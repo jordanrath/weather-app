@@ -243,7 +243,7 @@ width: inherit;
 
 .popper span:hover {
   cursor: pointer;
-  background-color: #879CEB;
+  background-color: rgb(192, 234, 250);
 }
 
 /* ---Scrollbar Styles--- */
@@ -263,7 +263,7 @@ width: inherit;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #6082fd;
+  background: #64b4f6;
 }
 
 .background.clear-night ::-webkit-scrollbar-track,
@@ -284,7 +284,7 @@ width: inherit;
 .background.clouds-night ::-webkit-scrollbar-thumb:hover,
 .background.rain-night ::-webkit-scrollbar-thumb:hover,
 .background.snow-night ::-webkit-scrollbar-thumb:hover {
-  background: #6082fd;
+  background: #64b4f6;
 }
 
 .date {
@@ -354,6 +354,13 @@ width: inherit;
 .background.snow-night .popper {
   color: whitesmoke;
   background-color: rgb(80, 80, 80);
+}
+
+.background.clear-night .popper span:hover,
+.background.clouds-night .popper span:hover,
+.background.rain-night .popper span:hover,
+.background.snow-night .popper span:hover {
+  background-color: #64b4f6;
 }
 
 .background.clear-night .input::placeholder,
