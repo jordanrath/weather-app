@@ -1,79 +1,93 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { useDebounce } from 'use-debounce';
 import functions from '../Data/CityData';
 import { getWeatherData } from '../pageFunctions';
+import { Popper } from 'react-popper';
+
+
+const { findByCityName } = functions;
 
 // add dropdown to display options for locations with same name
 // add useState location to check what is typed into the input... special characters, max length, min length, etc...
 const Input = ({ setData = () => {} }) => {
-  const [location, setLocation] = useState('');
   const [inputValue, setInputValue] = useState('');
-  const { findByCityName, matches, cityData } = functions;
-  // const [cityData, setCityData] = useState("");
-
-  // handle weather fetch
-  const handleClick = async (event) => {
-    event.preventDefault();
-    const data = await getWeatherData(location);
-    setData(data);
-  };
+  const [matches, setMatches] = useState([]);
 
   // handle user typed input
-  const handleInputChange= (event) => {
+  const handleInputChange = useCallback((event) => {
     setInputValue(event.target.value);
-    // console.log(inputValue);
-  };
+  }, []);
 
   // handle the submit event on the form
-  const handleSubmit = (event) => {
+  const handleSubmit = useCallback((event) => {
     event.preventDefault();
     setInputValue('');
-  };
+  }, []);
+
+  const handlePopperClick = useCallback(async (event, itemData) => {
+    event.preventDefault();
+    
+    const newLocation = `${itemData.name},${itemData.state},${itemData.country}`;
+    setInputValue(`${itemData.name}, ${itemData.state} ${itemData.country}`);
+    
+    const data = await getWeatherData(newLocation);
+    setData(data);
+    console.log(itemData)
+  }, [setData]);
+
+  // create debounced callback to call findByCityName on input change
+  const [rateLimitedInputValue] = useDebounce(inputValue, 300);
+
+  useEffect(() => {
+    findByCityName(rateLimitedInputValue).then((newMatches) => {
+      setMatches(newMatches);
+    });
+  }, [rateLimitedInputValue]);
+
+  const matchesJSX = useMemo(() => {
+    return matches.map((cityInfo) => {
+      const { id, name, state = "", country } = cityInfo;
+      const props = {
+        id: `city-opt-${id}}`,
+        key: `co-${id}`,
+        className:"city-entry",
+        children:(state !== "" ? `${name}, ${state} ${country}` : `${name}, ${country}`),
+        onClick: (e) => {
+          handlePopperClick(e, cityInfo);
+          handleSubmit(e);
+        },
+      };
+      return (
+        <span {...props}/>
+      );
+    });
+  }, [matches, handlePopperClick, handleSubmit]);
+  
+  const popperRenderFunc = useCallback(() => (
+      <div className="popper">
+        {matchesJSX} 
+      </div>
+  ), [matchesJSX]);
 
   return (
-    <form className='zipcode-form'>
-        <label>
-          <input 
-            type='text' 
-            id='zipcode' 
-            name='zipcode' 
-            className='zipcode-input' 
-            value={inputValue} 
-            placeholder='Enter city & state or zipcode...'
-            autoComplete='off' 
-            onChange={
-              (e) => {
-                setLocation(e.target.value)
-                handleInputChange(e); 
-                // setCityData(e.currentTarget.value); 
-                // findByCityName(e.currentTarget.value); 
-                console.log(location)
-            }}
-            // onKeyUp={
-            //   (e) => {
-            //   setLocation(e.target.value); 
-            //   findByCityName(location);
-            //   console.log(e.target.value);
-            // }} 
-          />
-        </label>
-          <input 
-            type='submit' 
-            value='OK' 
-            className='zipcode-btn' 
-            onClick={
-              (e) => {
-                handleClick(e); 
-                handleSubmit(e);
-            }} 
-          />
-          <div>
-            {/* {findByCityName} */}
-          </div>
-          {/* {cityData.map((city) => (
-            <div>
-              <p>{city.name}</p>
-            </div>
-          ))} */}
+    <form className='input-form'>
+            <input
+              type='text' 
+              id='input' 
+              name='input' 
+              className='input' 
+              value={inputValue} 
+              placeholder='Enter city & state or zipcode...'
+              autoComplete='off' 
+              onChange={handleInputChange}
+            />
+            <Popper
+              placement="bottom"
+              modifiers={[{ name: 'preventOverflow', enabled: false }]}
+              strategy="fixed"
+              >
+              {popperRenderFunc}
+            </Popper>
     </form>
   )
 }

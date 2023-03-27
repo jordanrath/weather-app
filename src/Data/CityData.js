@@ -1,5 +1,14 @@
+let initialData = undefined;
+
+const getInitialData = async () => {
+    if (initialData === undefined) {
+        initialData = await import('./CityDataStored.json').then(module => module.default);
+    }
+    return initialData;
+};
+
 const cleanCityName = (cityNameRaw) => (
-    (typeof cityNameRaw === "string" ? cityNameRaw.trim().toLowerLocaleCase() : "")
+    (typeof cityNameRaw === "string" ? cityNameRaw.trim().toLowerCase() : "")
 );
 
 const joinCityName = (cityName) => (
@@ -9,7 +18,7 @@ const joinCityName = (cityName) => (
 const filterCityName = ((cityInfo, cityName) => {
     const { name = "", state = "", country = "" } = cityInfo;
 
-    const dataValue = `${name}${state}${country}`.toLocaleLowerCase();    
+    const dataValue = `${name}${state}${country}`.toLowerCase();    
 
     return dataValue.startsWith(cityName);
 });
@@ -19,19 +28,19 @@ const sortCityName = ((cityDataA, cityDataB) => {
     const { name: nameB = "", country: countryB = "", state: stateB = "" } = cityDataB;
 
     //look up correct locale of string and compare them... returns -1, 0, or 1
-    const nameComp = nameA.toLocaleLowerCase().localeCompare(nameB.toLocaleLowerCase());
+    const nameComp = nameA.toLowerCase().localeCompare(nameB.toLowerCase());
 
     if (nameComp === 0) {
-        const countryComp = countryA.toLocaleLowerCase().localeCompare(countryB.toLocaleLowerCase());
+        const countryComp = countryA.toLowerCase().localeCompare(countryB.toLowerCase());
         if (countryComp === 0) {
-            return stateA.toLocaleLowerCase().localeCompare(stateB.toLocaleLowerCase());
+            return stateA.toLowerCase().localeCompare(stateB.toLowerCase());
         } 
         return countryComp;
     }   
     return nameComp;
  });
 
-const findByCityName = (cityNameRaw) => {
+const findByCityName = async (cityNameRaw) => {
 
     //validate and clean user input
     const cityName = joinCityName(cleanCityName(cityNameRaw));
@@ -41,7 +50,7 @@ const findByCityName = (cityNameRaw) => {
     };
 
     // load contents of json file into memory
-    const cityData = import('./CityDataStored.json');
+    const cityData = await getInitialData();
 
     //filter json data based off user input
     const matches = cityData.filter((cityInfo) => filterCityName(cityInfo, cityName));
@@ -54,7 +63,6 @@ const findByCityName = (cityNameRaw) => {
         const { id, name, country, state } = cityInfo;
         return { id, name, country, state };
     });
-
 };
 
 const functions = {

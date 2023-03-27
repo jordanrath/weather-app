@@ -7,6 +7,7 @@ html {
   width: 100%;
   height: 100vh;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 #root {
@@ -94,24 +95,30 @@ p {
 }
 
 .weather-container {
+  display: flex;
   justify-content: center;
+  flex-direction: row;
+  width: inherit;
 }
 
 .current-container {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
+  width: inherit;
   background-color: rgb(137, 207, 235, 0.6);
   gap: 20px;
   border-radius: 18px;
-  padding: 20px 70px 40px 70px;
+  padding: 20px 0 40px 0;
   box-shadow: inset 0 0 0 1px rgb(255 255 255 / 20%), 0 4px 8px rgb(17 20 24 / 40%), 0 8px 46px 6px rgba(17 20 24 / 40%);
 }
 
 .name-temp {
 display: inherit;
 flex-direction: inherit;
+width: inherit;
 }
 
 .name-temp h2 {
@@ -129,8 +136,9 @@ flex-direction: inherit;
 }
 
 .app-data {
-  display: flex;
+  display: inherit;
   flex-direction: inherit;
+  width: inherit;
 }
 
 .app-data p {
@@ -148,64 +156,88 @@ flex-direction: inherit;
   gap: 10px;
 }
 
-.zipcode-container {
+.input-container {
   display: inherit; 
   flex-direction: column;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   gap: 10px;
+  width: calc(100% - 20px);
 }
 
-.zipcode-form,
-.zipcode-form label {
+.input-form {
+  position: relative;
   display: inherit;
-  justify-content: flex-end;
-  flex-grow: 2;
-  width: 100%;
+  justify-content: center;
+  width: inherit;
   height: 25px;
-  gap: 5px;
 }
 
-.zipcode {
-  display: inherit;
-  gap: 10px;
-  width: 100%;
-}
-
-.zipcode-input {
+.input {
   display: inherit;
   justify-content: flex-end;
-  width: 100%;
+  width: inherit;
+  height: 35px;
   border: none;
   border-radius: 6px;
   text-overflow: ellipsis;
+  padding: 0 10px;
 }
 
-.zipcode-input::placeholder {
+.input::placeholder {
   opacity: 0.5s;
+  padding-left: 5px;
 }
 
-.zipcode-input:focus-visible {
-  outline-color: rgb(84, 141, 228);
+.input:focus-visible {
+  outline: none;
 }
 
-.zipcode-btn {
+.popper {
+  position: fixed;
+  transform: translateY(30px) translateX(0);
   display: inherit;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.1s;
-  background-color: rgb(84, 141, 228);
+  flex-direction: column;
+  width: 360px;
+  background-color: white;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  color: #181616;
+  text-shadow: none;
+  font-size: 13px;
+  overflow-y: scroll;
+  max-height: 400px;
 }
 
-.zipcode-btn:hover {
+.popper span {
+  padding: 10px 10px;
+}
+
+.popper span:hover {
+  cursor: pointer;
   background-color: #879CEB;
 }
 
-.zipcode-btn:active {
-  box-shadow: inset 0px 0px 5px #181616;
-  outline: none;
+/* ---Scrollbar Styles--- */
+::-webkit-scrollbar {
+  width: 7px;
 }
+
+/* ---Add color change on mouse wheel scroll --- */
+::-webkit-scrollbar-track {
+  background: #2c2c2c;
+  border-bottom-right-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a3a3a3;
+  border-bottom-right-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #879CEB;
+}
+
 
 .date {
   position: absolute;
@@ -253,7 +285,27 @@ flex-direction: inherit;
 .background.clouds-night .box,
 .background.rain-night .box,
 .background.snow-night .box {
-  background-color: rgba(83, 83, 83, 0.8);
+  background-color: rgba(83, 83, 83, 0.97);
+}
+
+.background.clear-night input#input.input,
+.background.clouds-night input#input.input,
+.background.rain-night input#input.input,
+.background.snow-night input#input.input,
+.background.clear-night .popper,
+.background.clouds-night .popper,
+.background.rain-night .popper,
+.background.snow-night .popper {
+  color: whitesmoke;
+  background-color: rgba(109, 109, 109, 1);
+}
+
+.background.clear-night .input::placeholder,
+.background.clouds-night .input::placeholder,
+.background.rain-night .input::placeholder,
+.background.snow-night .input::placeholder {
+  padding-left: 5px;
+  color: whitesmoke;
 }
 
 .sun,
@@ -347,7 +399,7 @@ flex-direction: inherit;
     font-size: 18px;
   }
 
-  .app-container{
+  .app-container {
     display: flex;
     justify-content: center;
     align-items: center;

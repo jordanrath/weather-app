@@ -45,7 +45,8 @@ export const getWeatherData = async (location) => {
 };
 
     const parseWeatherData = async (data) => {
-        const { 
+        const {
+            id, 
             main, 
             wind,
             dt, 
@@ -94,6 +95,7 @@ export const getWeatherData = async (location) => {
             : "";
 
         return {
+            id,
             main,
             wind,
             dt,
