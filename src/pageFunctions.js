@@ -44,17 +44,17 @@ export const getWeatherData = async (location) => {
     return weatherData;
 };
 
-export const getForecastData = async (location) => {
-    let forecastData = {};
-    try {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=92284ab1b40ad9a33e4b15e2e81f1fd1`)
-        forecastData = await parseWeatherData(response.json());
-        console.log('weather forecast', forecastData)
-    } catch (error) {
-        throw new Error('Fetch API call failed', error);
-    }
-    return forecastData;
-};
+// export const getForecastData = async (location) => {
+//     let forecastData = {};
+//     try {
+//         const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=92284ab1b40ad9a33e4b15e2e81f1fd1`)
+//         forecastData = await parseWeatherData(response.json());
+//         console.log('weather forecast', forecastData)
+//     } catch (error) {
+//         throw new Error('Fetch API call failed', error);
+//     }
+//     return forecastData;
+// };
 
     const parseWeatherData = async (data) => {
         const {
