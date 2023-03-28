@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useDebounce } from 'use-debounce';
 import functions from '../Data/CityData';
-import { getWeatherData } from '../pageFunctions';
+import { getWeatherData, getForecastData } from '../pageFunctions';
 import { Popper } from 'react-popper';
 
 const { findByCityName } = functions;
@@ -30,12 +30,13 @@ const Input = ({ setData = () => {} }) => {
     setInputValue(`${itemData.name}, ${itemData.state} ${itemData.country}`);
     
     const data = await getWeatherData(newLocation);
+    // const data = await getForecastData(newLocation);
     setData(data);
     console.log(itemData)
   }, [setData]);
 
   // create debounced callback to call findByCityName on input change
-  const [rateLimitedInputValue] = useDebounce(inputValue, 300);
+  const [rateLimitedInputValue] = useDebounce(inputValue, 150);
 
   useEffect(() => {
     findByCityName(rateLimitedInputValue).then((newMatches) => {

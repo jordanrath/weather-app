@@ -118,11 +118,11 @@ p {
   justify-content: center;
   align-items: center;
   width: inherit;
-  background-color: rgba(28, 166, 221, 0.97);
   gap: 20px;
   border-radius: 18px;
   padding: 20px 0 40px 0;
-  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 20%), 0 4px 8px rgb(17 20 24 / 40%), 0 8px 46px 6px rgba(17 20 24 / 40%);
+  /* background-color: rgba(28, 166, 221, 0.97);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 20%), 0 4px 8px rgb(17 20 24 / 40%), 0 8px 46px 6px rgba(17 20 24 / 40%); */
 }
 
 .name-temp {
@@ -180,7 +180,7 @@ width: inherit;
   display: inherit;
   justify-content: center;
   width: inherit;
-  background-color: rgb(1, 149, 207);
+  background-color: rgba(28, 166, 221);
   border-radius: 12px;
   /* height: 25px; */
 }
@@ -189,7 +189,7 @@ width: inherit;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(1, 149, 207);
+  background-color: rgba(28, 166, 221);
   color: whitesmoke;
   text-shadow: none;
   height: 15px;
@@ -211,7 +211,7 @@ width: inherit;
   padding: 0 10px;
   font-size: 16px;
   color: whitesmoke;
-  background-color: rgb(1, 149, 207);
+  background-color: rgba(28, 166, 221);
   z-index: 2;
 }
 
@@ -226,7 +226,7 @@ width: inherit;
 }
 
 .input-container .input-form .input::placeholder {
-  color: #d3d3d3;
+  color: #ebebeb;
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
 }
@@ -341,10 +341,6 @@ width: inherit;
   gap: 10px;
 }
  
-.background.clear-night .current-container,
-.background.clouds-night .current-container,
-.background.rain-night .current-container,
-.background.snow-night .current-container,
 .background.clear-night .box,
 .background.clouds-night .box,
 .background.rain-night .box,
