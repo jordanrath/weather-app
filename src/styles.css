@@ -179,7 +179,9 @@ width: inherit;
   display: inherit;
   justify-content: center;
   width: inherit;
-  height: 25px;
+  background-color: rgb(192, 234, 250);
+  border-radius: 12px;
+  /* height: 25px; */
 }
 
 .input-form .material-symbols-outlined {
@@ -324,7 +326,7 @@ width: inherit;
   font-size: 1rem;
   gap: 10px;
 }
-
+ 
 .background.clear-night .current-container,
 .background.clouds-night .current-container,
 .background.rain-night .current-container,
@@ -336,6 +338,10 @@ width: inherit;
   background-color: rgba(83, 83, 83, 0.97);
 }
 
+.background.clear-night .input-form,
+.background.clouds-night .input-form,
+.background.rain-night .input-form,
+.background.snow-night .input-form,
 .background.clear-night input#input.input,
 .background.clouds-night input#input.input,
 .background.rain-night input#input.input,
