@@ -2,38 +2,34 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Input from './Input';
 import { pageState } from '../pageState';
 import classNames from 'classnames';
-import { DateTimeFormatter, ZonedDateTime } from '@js-joda/core';
+import { formatWeatherData, formatForecastData } from '../Utils/formatWeatherData';
+import { useMemo } from 'react';
 
-const Weather = ({ weatherData = null, loadingState = pageState.LOADING, setData = () => {} }) => {
-    const { main, wind, weather = [], visibility, sys } = (weatherData ?? {});
+const Weather = ({ weatherData = null, forecastData = null, loadingState = pageState.LOADING, setData = () => {} }) => {
     const { 
-        temp: currentTempRaw = 0, 
-        temp_max: highTempRaw = 0, 
-        temp_min: lowTempRaw = 0, 
-        feels_like: feelsLikeRaw = 0,
-        humidity: humidityRaw = 0 
-    } = (main ?? {});
-    const { speed: speedRaw = 0 } = (wind ?? {});
-    const { sunriseZDT: sunriseRaw = null, sunsetZDT: sunsetRaw = null } = (sys ?? {})
-    const { description = '' } = ((weather[0]) ?? {})
-    const currentTemp = parseInt(currentTempRaw);
-    const highTemp = parseInt(highTempRaw);
-    const lowTemp = parseInt(lowTempRaw);
-    const feelsLike = parseInt(feelsLikeRaw);
-    const speed = parseInt(speedRaw);
-    const humidity = parseInt(humidityRaw);
-    const visibile = (visibility / 1000);
-    const sunriseZDT = (sunriseRaw instanceof ZonedDateTime) 
-        ? sunriseRaw.format(DateTimeFormatter.ofPattern('hh:mm')) 
-        : "";
-    const sunsetZDT = (sunsetRaw instanceof ZonedDateTime) 
-        ? sunsetRaw.format(DateTimeFormatter.ofPattern('hh:mm')) 
-        : "";
+        currentTemp,
+        highTemp,
+        lowTemp,
+        feelsLike,
+        speed,
+        humidity,
+        visibile,
+        description,
+        sunriseZDT,
+        sunsetZDT,
+        name
+    } = useMemo(() => formatWeatherData(weatherData), [weatherData]);
+
+    const {
+        city
+    } = useMemo(() => formatForecastData(forecastData), [forecastData]);
+
     const boxClass = classNames({ 
         'box-value': true, 
         placeholder: loadingState === pageState.LOADING,
         'error-state': loadingState === pageState.ERROR 
     });
+    
     const appDataClass = classNames({ 
         'app-data': true, 
         placeholder: loadingState === pageState.LOADING,
@@ -45,7 +41,7 @@ const Weather = ({ weatherData = null, loadingState = pageState.LOADING, setData
             <div className='weather-container'>
             <div className='current-container'>
                 <div className='name-temp'>
-                    <h2>{`${weatherData.name}`}</h2>
+                    <h2>{name}</h2>
                     <h1 className={boxClass}>{currentTemp}&deg;</h1>
                 </div>
                 <div className={appDataClass}>

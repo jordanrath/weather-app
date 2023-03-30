@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useDebounce } from 'use-debounce';
 import functions from '../Data/CityData';
-import { getWeatherData, getForecastData } from '../pageFunctions';
+import { getWeatherDataLocation } from '../pageFunctions';
 import { Popper } from 'react-popper';
 
 const { findByCityName } = functions;
@@ -29,10 +29,9 @@ const Input = ({ setData = () => {} }) => {
     const newLocation = `${itemData.name},${itemData.state},${itemData.country}`;
     setInputValue(`${itemData.name}, ${itemData.state} ${itemData.country}`);
     
-    const data = await getWeatherData(newLocation);
-    // const data = await getForecastData(newLocation);
+    const data = await getWeatherDataLocation(newLocation);
     setData(data);
-    console.log(itemData)
+    console.log(itemData);
   }, [setData]);
 
   // create debounced callback to call findByCityName on input change
@@ -48,7 +47,7 @@ const Input = ({ setData = () => {} }) => {
     return matches.map((cityInfo) => {
       const { id, name, state = "", country } = cityInfo;
       const props = {
-        id: `city-opt-${id}}`,
+        id: `city-opt-${id}`,
         key: `co-${id}`,
         className:"city-entry",
         children:(state !== "" ? `${name}, ${state} ${country}` : `${name}, ${country}`),
@@ -86,7 +85,7 @@ const Input = ({ setData = () => {} }) => {
               placement="bottom"
               modifiers={[{ name: 'preventOverflow', enabled: false }]}
               strategy="fixed"
-              >
+            >
               {popperRenderFunc}
             </Popper>
     </form>
