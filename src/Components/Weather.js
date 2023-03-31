@@ -37,24 +37,27 @@ const Weather = ({ weatherData = null, forecastData = null, loadingState = pageS
     });
 
   return (
-        <div className='app-container'>
+        <div className='app-container' data-aos="fade-in">
             <div className='weather-container'>
-            <div className='current-container'>
-                <div className='name-temp'>
-                    <h2>{name}</h2>
-                    <h1 className={boxClass}>{currentTemp}&deg;</h1>
-                </div>
-                <div className={appDataClass}>
-                        <p>{description}</p>
-                    <div className='high-low'>
-                        <p>H: {highTemp}&deg;</p>
-                        <p>L: {lowTemp}&deg;</p>
-                    </div>  
-                </div>
-                <div className='input-container'>
-                    <Input setData={setData} />
+                <div className='current-container'>
+                    <div className='name-temp'>
+                        <h2>{name}</h2>
+                        <h1 className={boxClass}>{currentTemp}&deg;</h1>
+                    </div>
+                    <div className={appDataClass}>
+                            <p>{description}</p>
+                        <div className='high-low'>
+                            <p>H: {highTemp}&deg;</p>
+                            <p>L: {lowTemp}&deg;</p>
+                        </div>  
+                    </div>
+                    <div className='input-container'>
+                        <Input setData={setData} />
+                    </div>
                 </div>
             </div>
+            <div className="forecast-container">
+                
             </div>
             <div className='box-container'>
                 <div className='box sun'>

@@ -253,7 +253,7 @@ width: inherit;
   transform: translateY(26px) translateX(0);
   display: inherit;
   flex-direction: column;
-  width: 360px;
+  width: 400px;
   padding-top: 0px;
   /* padding-top: 15px;
   padding-bottom: 10px; */
@@ -482,7 +482,7 @@ width: inherit;
   }
 
   .popper {
-    width: 218px;
+    width: 300px;
   }
 
   .date {

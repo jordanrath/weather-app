@@ -4,6 +4,8 @@ import { pageState } from './pageState';
 import './Components/FontAwesomeIcons';
 import Background from './Components/Background';
 import { getInitialWeatherData } from './pageFunctions';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const App = () => {
   const [data, setData] = useState({});
@@ -13,6 +15,16 @@ const App = () => {
   const { weather = [], timeData } = weatherData;
   const [ firstWeather = {} ] = weather;
   const { main: weatherType = "Clear" } = firstWeather;
+
+  useEffect(() => {
+    AOS.init({
+      once: true,
+      duration: 750,
+      offset: 50,
+      easing: 'ease-in-out',
+    });
+    AOS.refresh();
+  }, []);
 
   const handleInitialLoad = useCallback(async () => {
       setLoadingState(pageState.LOADING);
