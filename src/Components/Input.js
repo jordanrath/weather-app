@@ -83,8 +83,8 @@ const Input = ({ setData = () => {} }) => {
             />
             <Popper
               placement="bottom"
-              modifiers={[{ name: 'preventOverflow', enabled: false }]}
-              strategy="fixed"
+              modifiers={[{ name: 'preventOverflow', enabled: false, }]}
+              strategy="absolute"
             >
               {popperRenderFunc}
             </Popper>

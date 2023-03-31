@@ -28,6 +28,36 @@ body {
   width: 100vw;
 }
 
+:root {
+  /* colors */
+  --primary: rgba(59, 173, 249, 1);
+  --primary-dm: rgba(83, 83, 83, 1);
+  --primary-variant-dm: rgb(10 ,152, 248);
+  --primary-variant: rgb(10 ,152, 248);
+  --secondary-lm: #ba60ff;
+  --secondary: #00bab8;
+  --secondary-variant: #008072;
+  --background: #404040;
+  --background-secondary: #282828;
+  --background-dm: #181818;
+  --background-secondary-dm: #121212;
+  --background-lm: #FFFFFF;
+  --background-variant-lm: #f4f9fc;
+  --background-secondary-lm: #eeeeee;
+  --background-scroll-lm: #777777;
+  --on-primary: #FFFFFF;
+  --on-secondary: #000000;
+  --on-primary-modal: #7e7e7e;
+  --on-toggle-lm: #ba60ff;
+  --on-toggle-dm: #ffdaa5;
+  --on-error: #FFFFFF;
+  --error-dm: #CF6679;
+  --error-lm: #B00020;
+  --grey-50: #f2f4f8;
+  --grey-100:  #c9cacf;
+  /* typography */
+}
+
 h1,
 h2,
 h3,
@@ -127,9 +157,6 @@ p {
   border-radius: 18px;
   padding: 0;
   margin: 0;
-  /* padding: 20px 0 0 0; */
-  /* background-color: rgba(28, 166, 221, 0.97);
-  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 20%), 0 4px 8px rgb(17 20 24 / 40%), 0 8px 46px 6px rgba(17 20 24 / 40%); */
 }
 
 .name-temp {
@@ -148,8 +175,9 @@ width: inherit;
 .name-temp h1 {
   display: inherit;
   justify-content: center;
-  font-size: 4rem;
+  font-size: 6rem;
   font-weight: 300;
+  padding-left: 5px;
 }
 
 .app-data {
@@ -183,17 +211,23 @@ width: inherit;
   gap: 10px;
   /* width: calc(100% - 20px); */
   width: 100%;
+  height: 42px;
+  box-shadow: inset 
+    0 0 0 1px rgb(255 255 255 / 20%), 
+    0 2px 4px rgb(17 20 24 / 40%), 
+    0 6px 8px 2px rgb(17 20 24 / 20%);
+    border-radius: 12px;
 }
 
 .input-form {
   position: relative;
   display: inherit;
   justify-content: center;
-  width: inherit;
-  background-color: rgba(28, 166, 221);
+  width: 99.7%;
+  background-color: var(--primary);
   border-radius: 12px;
-  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 20%), 0 4px 8px rgb(17 20 24 / 40%), 0 12px 16px 6px rgb(17 20 24 / 20%);
-
+  
+  height: 40px;
   /* height: 25px; */
 }
 
@@ -201,10 +235,10 @@ width: inherit;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(28, 166, 221);
+  background-color: var(--primary);
   color: whitesmoke;
   text-shadow: none;
-  height: 15px;
+  /* height: 15px; */
   padding: 10px 0 10px 10px;
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
@@ -216,14 +250,15 @@ width: inherit;
   display: inherit;
   justify-content: flex-end;
   width: inherit;
-  height: 35px;
+  height: 40px;
   border: none;
   border-radius: 0  12px 12px 0;
   text-overflow: ellipsis;
   padding: 0 10px;
   font-size: 16px;
+  font-weight: 400;
   color: whitesmoke;
-  background-color: rgba(28, 166, 221);
+  background-color: var(--primary);
   z-index: 2;
 }
 
@@ -240,26 +275,28 @@ width: inherit;
 .input-container .input-form .input::placeholder {
   color: #ebebeb;
   font-family: 'Roboto', sans-serif;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .input-container .input-form .input {
   font-family: 'Roboto', sans-serif;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .popper {
   position: absolute;
-  transform: translateY(26px) translateX(0);
+  transform: translateY(25px) translateX(0);
   display: inherit;
   flex-direction: column;
   width: 400px;
-  padding-top: 0px;
-  /* padding-top: 15px;
-  padding-bottom: 10px; */
-  background-color: rgb(1, 149, 207);
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
+  padding-top: 10px;
+  background-color: var(--primary);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  box-shadow: inset 
+    0 0 0 1px rgb(255 255 255 / 20%), 
+    0 1px 2px rgb(17 20 24 / 40%), 
+    0 4px 6px 1px rgb(17 20 24 / 20%);
   color: whitesmoke;
   text-shadow: none;
   overflow-y: scroll;
@@ -274,7 +311,7 @@ width: inherit;
 
 .popper span:hover {
   cursor: pointer;
-  background-color: rgb(192, 234, 250);
+  background-color: var(--primary-variant);
 }
 
 /* ---Scrollbar Styles--- */
@@ -284,13 +321,13 @@ width: inherit;
 
 /* ---Add color change on mouse wheel scroll --- */
 ::-webkit-scrollbar-track {
-  background: rgb(192, 234, 250);
-  border-bottom-right-radius: 6px;
+  background: var(--primary-variant);
+  border-bottom-right-radius: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #a3a3a3;
-  border-bottom-right-radius: 6px;
+  border-bottom-right-radius: 12px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -348,9 +385,12 @@ width: inherit;
 
 .box {
   display: inherit;
-  background-color: rgba(28, 166, 221, 0.97);
+  background-color: rgba(59, 173, 249, .9);
   border-radius: 18px;
-  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 20%), 0 4px 8px rgb(17 20 24 / 40%), 0 12px 16px 6px rgb(17 20 24 / 20%);
+  box-shadow: inset 
+    0 0 0 1px rgb(255 255 255 / 20%), 
+    0 2px 4px rgb(17 20 24 / 40%), 
+    0 6px 8px 2px rgb(17 20 24 / 20%);  
   font-size: 1rem;
   gap: 10px;
   padding: 0;
@@ -360,7 +400,7 @@ width: inherit;
 .background.clouds-night .box,
 .background.rain-night .box,
 .background.snow-night .box {
-  background-color: rgba(83, 83, 83, 0.97);
+  background-color: var(--primary-dm);
 }
 
 .background.clear-night .input-form,
@@ -376,7 +416,7 @@ width: inherit;
 .background.rain-night .input-form .material-symbols-outlined,
 .background.snow-night .input-form .material-symbols-outlined {
   color: whitesmoke;
-  background-color: rgba(109, 109, 109, 1);
+  background-color: var(--primary-dm);
 }
 
 .background.clear-night .popper,
@@ -384,7 +424,7 @@ width: inherit;
 .background.rain-night .popper,
 .background.snow-night .popper {
   color: whitesmoke;
-  background-color: rgb(80, 80, 80);
+  background-color: var(--primary-dm);
 }
 
 .background.clear-night .popper span:hover,
@@ -410,7 +450,7 @@ width: inherit;
   justify-content: flex-start;
   align-items: flex-start;
   padding: 10px;
-  width: 42%;
+  width: 175px;
   height: 150px;
 }
 
@@ -482,7 +522,7 @@ width: inherit;
   }
 
   .popper {
-    width: 300px;
+    width: 290px;
   }
 
   .date {
