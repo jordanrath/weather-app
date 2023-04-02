@@ -12,6 +12,7 @@ const Weather = ({ weatherData = null, forecastData = null, loadingState = pageS
         lowTemp,
         feelsLike,
         speed,
+        gust,
         humidity,
         visibile,
         description,
@@ -60,41 +61,56 @@ const Weather = ({ weatherData = null, forecastData = null, loadingState = pageS
                 
             </div>
             <div className='box-container'>
-                <div className='box sun'>
+                <div className='box'>
                     <p className='icon-text'><FontAwesomeIcon className='icon' icon="fa-solid fa-sun" /> 
-                        Sunrise
+                        SUNRISE
                     </p>
-                    <p className={boxClass}>{sunriseZDT}AM</p>
+                    <div className="box-content">
+                        <p className={boxClass}>{sunriseZDT}AM</p>
+                    </div>
                 </div>
-                <div className='box sun'>
+                <div className='box'>
                     <p className='icon-text'><FontAwesomeIcon className='icon' icon="fa-solid fa-moon" /> 
-                        Sunset
+                        SUNSET
                     </p>
-                    <p className={boxClass}>{sunsetZDT}PM</p>
+                    <div className="box-content">
+                        <p className={boxClass}>{sunsetZDT}PM</p>
+                    </div>
                 </div>
-                <div className='box humidity'>
+                <div className='box'>
                     <p className='icon-text'><FontAwesomeIcon icon="fa-solid fa-water" /> 
-                        Humidity
+                        HUMIDITY
                     </p>
-                    <p className={boxClass}>{humidity}%</p>    
+                    <div className="box-content">
+                        <p className={boxClass}>{humidity}%</p>
+                        <p>{(humidity <= "35" ? "The air is fairly dry." : "The air humidity is high")}</p>
+                    </div>    
                 </div>
-                <div className='box feels-like'>
+                <div className='box'>
                     <p className='icon-text'><FontAwesomeIcon icon="fa-solid fa-temperature-high" /> 
-                        Feels Like
+                        FEELS LIKE
                     </p>
-                    <p className={boxClass}>{feelsLike}&deg;</p>    
+                    <div className="box-content">
+                        <p className={boxClass}>{feelsLike}&deg;</p>    
+                    </div>
                 </div>
-                <div className='box wind'>
+                <div className='box'>
                     <p  className='icon-text'><FontAwesomeIcon icon="fa-solid fa-wind" /> 
-                        Wind
+                        WIND
                     </p>
-                    <p className={boxClass}>{speed}mph</p>    
+                    <div className="box-content">
+                        <p className={boxClass}>{speed}mph</p>
+                        <p>{({speed} < "10" ? "It's not very windy." : `Windy with gusts up to ${gust}mph.`)}</p>    
+                    </div>
                 </div>
-                <div className='box wind'>
+                <div className='box'>
                     <p className='icon-text'><FontAwesomeIcon icon="fa-solid fa-eye" /> 
-                        Visibility
+                        VISIBILITY
                     </p>
-                    <p className={boxClass}>{visibile.toFixed(1)}mi</p>    
+                    <div className="box-content">
+                        <p className={boxClass}>{visibile.toFixed(1)}mi</p>
+                        <p>{(visibile.toFixed(1) === "10.0" ? "It's perfectly clear." : "Visibility is impaired.")}</p>
+                    </div>
                 </div>
             </div>
         </div>

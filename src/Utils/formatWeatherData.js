@@ -9,7 +9,7 @@ export const formatWeatherData = (weatherData) => {
         feels_like: feelsLikeRaw = 0,
         humidity: humidityRaw = 0 
     } = (main ?? {});
-    const { speed: speedRaw = 0 } = (wind ?? {});
+    const { speed: speedRaw = 0, gust: gustRaw = 0 } = (wind ?? {});
     const { sunriseZDT: sunriseRaw = null, sunsetZDT: sunsetRaw = null } = (sys ?? {})
     const { description = '' } = ((weather[0]) ?? {})
     const currentTemp = parseInt(currentTempRaw);
@@ -17,6 +17,7 @@ export const formatWeatherData = (weatherData) => {
     const lowTemp = parseInt(lowTempRaw);
     const feelsLike = parseInt(feelsLikeRaw);
     const speed = parseInt(speedRaw);
+    const gust = parseInt(gustRaw);
     const humidity = parseInt(humidityRaw);
     const visibile = (visibility / 1000);
     const sunriseZDT = (sunriseRaw instanceof ZonedDateTime) 
@@ -31,7 +32,8 @@ export const formatWeatherData = (weatherData) => {
         highTemp, 
         lowTemp, 
         feelsLike, 
-        speed, 
+        speed,
+        gust, 
         humidity, 
         visibile, 
         description, 
