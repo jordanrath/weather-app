@@ -83,7 +83,7 @@ const Weather = ({ weatherData = null, forecastData = null, loadingState = pageS
                     </p>
                     <div className="box-content">
                         <p className={boxClass}>{humidity}%</p>
-                        <p>{(humidity <= "35" ? "The air is fairly dry." : "The air humidity is high")}</p>
+                        <p>{(humidity <= "35" ? "The air is fairly dry." : "The air humidity is high.")}</p>
                     </div>    
                 </div>
                 <div className='box'>
@@ -100,7 +100,7 @@ const Weather = ({ weatherData = null, forecastData = null, loadingState = pageS
                     </p>
                     <div className="box-content">
                         <p className={boxClass}>{speed}mph</p>
-                        <p>{({speed} < "10" ? "It's not very windy." : `Windy with gusts up to ${gust}mph.`)}</p>    
+                        <p>{((speed >= 10 && gust > 0) ? `Windy with gusts up to ${gust}mph.` : "" )}</p>    
                     </div>
                 </div>
                 <div className='box'>
