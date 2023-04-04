@@ -35,7 +35,7 @@ const Input = ({ setData = () => {} }) => {
   }, [setData]);
 
   // create debounced callback to call findByCityName on input change
-  const [rateLimitedInputValue] = useDebounce(inputValue, 150);
+  const [rateLimitedInputValue] = useDebounce(inputValue, 75);
 
   useEffect(() => {
     findByCityName(rateLimitedInputValue).then((newMatches) => {

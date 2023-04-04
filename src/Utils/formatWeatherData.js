@@ -44,6 +44,62 @@ export const formatWeatherData = (weatherData) => {
 };
 
 export const formatForecastData = (forecastData) => {
-    //todo ^
-    return {...forecastData}
+    const { list = [] } = (forecastData ?? {});
+    const finalData = {
+        day0: {},
+        day1: {},
+        day2: {},
+        day3: {},
+        day4: {},
+        day5: {},
+    };
+
+    let currentDayValues = [];
+    let dateCheck = "";
+    let dayNumber = -1;
+
+    list.forEach((value, index) => {
+        const { dt_txt = "" } = value;
+        const currentDateCheck = dt_txt.split(" ").slice(0, 1).toString();
+
+        if (dateCheck !== currentDateCheck) {
+            dateCheck = currentDateCheck;
+            if (dayNumber >= 0) {
+                finalData[`day${dayNumber}`] = formatForecastDayData(currentDayValues);
+                currentDayValues = [];
+            }
+            dayNumber += 1;
+            currentDayValues.push(value);
+        } else {
+            currentDayValues.push(value);
+        }
+        console.log(finalData);
+    });
+
+    return {finalData};
 }
+
+export const formatForecastDayData = (dayValues) => {
+    let forecastHigh = undefined;
+    let forecastLow = undefined;
+    let weatherTypes = [];
+
+    dayValues.forEach((val, index) => {
+        const { main, weather } = val;
+        const { temp_max, temp_min } = main;
+        const timeSlotWeatherTypes = weather.map((weatherType) => {
+            const { main } = weatherType;
+            return main;
+        });
+        weatherTypes.push(...timeSlotWeatherTypes);
+        forecastHigh = Math.max(temp_max, forecastHigh ?? -1000);
+        forecastLow = Math.min(temp_min, forecastLow ?? 1000);
+    });
+    
+    return {
+        dayValues,
+        forecastHigh,
+        forecastLow,
+        weatherTypes,
+    }
+};
