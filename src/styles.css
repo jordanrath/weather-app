@@ -283,16 +283,87 @@ width: inherit;
   font-weight: 300;
 }
 
+.forecast-container {
+  display: flex;
+  flex-direction: column;
+  /* gap: 30px; */
+  width: 100%;
+  border-radius: 12px;
+  background-color: var(--primary);
+  box-shadow: inset 
+    0 0 0 1px rgb(32, 27, 27, 0.2), 
+    0 1px 2px rgb(17 20 24 / 40%), 
+    0 4px 6px 1px rgb(17 20 24 / 20%);
+}
+
+.forecast-title {
+  display: flex;
+  gap: 10px;
+  padding: 10px 20px 20px 20px;
+  color: rgba(240, 242, 243, 0.596);
+  text-shadow: 1px 2px 3px rgba(11, 0, 0, 0.61);
+}
+
+.forecast-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100%  - 40px);
+  padding: 0 20px 20px 20px;
+}
+
+.forecast-content__day {
+  display: inherit;
+  justify-content: flex-start;
+  width: 25%;
+}
+
+.forecast-content__icon {
+  display: inherit;
+  justify-content: flex-start;
+  align-items: baseline;
+  width: 25%;
+}
+
+.forecast-content__icon.icon-text svg.svg-inline--fa {
+  height: 20px;
+}
+
+.forecast-content__range {
+  display: inherit;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  gap: 10px;
+}
+
+.forecast-content__progress-bar {
+  height: 4px;
+  width: 100px;
+  border-radius: 20px;
+  background-color: rgba(144, 208, 240, 0.747);;
+}
+
+.forecast-content__progress-bar > div {
+  width: 0%;
+  height: 100%;
+  border-radius: 20px;
+  background-image: linear-gradient(to right, lightskyblue, orange);
+  background-size: 100px 100%;
+  transition: width 200ms;
+}
+
 .popper {
   position: absolute;
+  /* transition: all 0.5s; */
   transform: translateY(25px) translateX(0);
   display: inherit;
   flex-direction: column;
-  width: 400px;
+  width: 100%;
   padding-top: 10px;
   background-color: var(--primary);
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
   box-shadow: inset 
     0 0 0 1px rgb(32, 27, 27, 0.2), 
     0 1px 2px rgb(17 20 24 / 40%), 
@@ -322,7 +393,7 @@ width: inherit;
 /* ---Add color change on mouse wheel scroll --- */
 ::-webkit-scrollbar-track {
   background: var(--primary-variant);
-  border-bottom-right-radius: 12px;
+  border-bottom-right-radius:12px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -385,7 +456,7 @@ width: inherit;
 
 .box {
   display: inherit;
-  background-color: rgba(59, 173, 249, .9);
+  background-color: var(--primary);
   border-radius: 18px;
   box-shadow: inset 
     0 0 0 1px rgba(32, 27, 27, 0.2), 

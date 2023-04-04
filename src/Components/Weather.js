@@ -58,7 +58,82 @@ const Weather = ({ weatherData = null, forecastData = null, loadingState = pageS
                 </div>
             </div>
             <div className="forecast-container">
-                
+                <div className="forecast-title">
+                    <FontAwesomeIcon icon="fa-regular fa-calendar-days" />
+                    5-DAY FORECAST
+                </div>
+                <div className="forecast-content">
+                    <p className="forecast-content__day">Today</p>
+                    <p className='forecast-content__icon icon-text'><FontAwesomeIcon className='icon' icon="fa-solid fa-sun" /></p>
+                    <div className="forecast-content__range">
+                        <p>{lowTemp}&deg;</p>
+                        <div className="forecast-content__progress-bar">
+                            <div>
+                            </div>
+                        </div>
+                        <p>{highTemp}&deg;</p>
+                    </div>
+                </div>
+                <div className="forecast-content">
+                    <p className="forecast-content__day">day1</p>
+                    <p className='forecast-content__icon icon-text'><FontAwesomeIcon className='icon' icon="fa-solid fa-sun" /></p>
+                    <div className="forecast-content__range">
+                        <p>{lowTemp}&deg;</p>
+                        <div className="forecast-content__progress-bar">
+                            <div>
+                            </div>
+                        </div>
+                        <p>{highTemp}&deg;</p>
+                    </div>
+                </div>
+                <div className="forecast-content">
+                    <p className="forecast-content__day">day2</p>
+                    <p className='forecast-content__icon icon-text'><FontAwesomeIcon className='icon' icon="fa-solid fa-sun" /></p>
+                    <div className="forecast-content__range">
+                        <p>{lowTemp}&deg;</p>
+                        <div className="forecast-content__progress-bar">
+                            <div>
+                            </div>
+                        </div>
+                        <p>{highTemp}&deg;</p>
+                    </div>
+                </div>
+                <div className="forecast-content">
+                    <p className="forecast-content__day">day3</p>
+                    <p className='forecast-content__icon icon-text'><FontAwesomeIcon className='icon' icon="fa-solid fa-sun" /></p>
+                    <div className="forecast-content__range">
+                        <p>{lowTemp}&deg;</p>
+                        <div className="forecast-content__progress-bar">
+                            <div>
+                            </div>
+                        </div>
+                        <p>{highTemp}&deg;</p>
+                    </div>
+                </div>
+                <div className="forecast-content">
+                    <p className="forecast-content__day">day4</p>
+                    <p className='forecast-content__icon icon-text'><FontAwesomeIcon className='icon' icon="fa-solid fa-sun" /></p>
+                    <div className="forecast-content__range">
+                        <p>{lowTemp}&deg;</p>
+                        <div className="forecast-content__progress-bar">
+                            <div>
+                            </div>
+                        </div>
+                        <p>{highTemp}&deg;</p> 
+                    </div>
+                </div>
+                <div className="forecast-content">
+                    <p className="forecast-content__day">day5</p>
+                    <p className='forecast-content__icon icon-text'><FontAwesomeIcon className='icon' icon="fa-solid fa-sun" /></p>
+                    <div className="forecast-content__range">
+                        <p>{lowTemp}&deg;</p>
+                        <div className="forecast-content__progress-bar">
+                            <div>
+                            </div>
+                        </div>
+                        <p>{highTemp}&deg;</p>
+                    </div>
+                </div>
             </div>
             <div className='box-container'>
                 <div className='box'>
