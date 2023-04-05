@@ -333,8 +333,14 @@ width: inherit;
   display: inherit;
   justify-content: flex-start;
   align-items: center;
-  width: 50%;
-  gap: 10px;
+  width: 180px;
+  /* gap: 10px; */
+}
+
+.forecast-content__range p {
+  display: flex;
+  justify-content: center;
+  width: 40px;
 }
 
 .forecast-content__progress-bar {
