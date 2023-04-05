@@ -1,4 +1,4 @@
-import { DateTimeFormatter, Duration, Instant, ZonedDateTime, ZoneId, ZoneOffset } from "@js-joda/core";
+import { DateTimeFormatter, DayOfWeek, Duration, Instant, ZonedDateTime, ZoneId, ZoneOffset } from "@js-joda/core";
 
     // get initial lat lon of user for first api fetch
     const getInitialLatLon = async () => {
@@ -108,7 +108,7 @@ const parseWeatherData = async (data) => {
         offset,
         statusCode,
         zoneId,
-        timeData: {currentLocale, searchedSunriseTime, searchedSunsetTime}
+        timeData: {currentLocale, searchedSunriseTime, searchedSunsetTime},
     };
 };
 
@@ -118,6 +118,7 @@ const parseForecastData = async (data) => {
         cnt: count = 0,
         list = [],
         city = {},
+        dt = 0,
         cod: statusCode = 500 
     } = await data;
     if (parseInt(statusCode) !== 200) {
@@ -126,16 +127,12 @@ const parseForecastData = async (data) => {
    
     //destructure city and list
     const { temp, feels_like, temp_min, temp_max, humidity } = list;
-    const { id, name, country, lat, lon, population, sunrise, sunset } = city;
+    const { id, population, sunrise, sunset } = city;
 
     return {
         id,
         list,
         city,
-        // name,
-        // country,
-        // lat,
-        // lon,
         count,
         message,
         population,
@@ -147,6 +144,7 @@ const parseForecastData = async (data) => {
         temp_max,
         humidity,
         statusCode,
+        dt,
         // timeData: {currentLocale, searchedSunriseTime, searchedSunsetTime}
     };
 };

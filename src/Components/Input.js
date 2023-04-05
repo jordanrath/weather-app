@@ -31,11 +31,10 @@ const Input = ({ setData = () => {} }) => {
     
     const data = await getWeatherDataLocation(newLocation);
     setData(data);
-    console.log(itemData);
   }, [setData]);
 
   // create debounced callback to call findByCityName on input change
-  const [rateLimitedInputValue] = useDebounce(inputValue, 75);
+  const [rateLimitedInputValue] = useDebounce(inputValue, 300);
 
   useEffect(() => {
     findByCityName(rateLimitedInputValue).then((newMatches) => {

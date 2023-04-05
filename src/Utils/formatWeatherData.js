@@ -1,7 +1,7 @@
 import { DateTimeFormatter, ZonedDateTime } from '@js-joda/core';
 
 export const formatWeatherData = (weatherData) => {
-    const { main, wind, weather = [], visibility, sys, name } = (weatherData ?? {});
+    const { main, wind, weather = [], visibility, sys, name, dt } = (weatherData ?? {});
     const { 
         temp: currentTempRaw = 0, 
         temp_max: highTempRaw = 0, 
@@ -26,7 +26,7 @@ export const formatWeatherData = (weatherData) => {
     const sunsetZDT = (sunsetRaw instanceof ZonedDateTime) 
         ? sunsetRaw.format(DateTimeFormatter.ofPattern('hh:mm')) 
         : "";
-        
+
     return {
         currentTemp, 
         highTemp, 
@@ -39,7 +39,7 @@ export const formatWeatherData = (weatherData) => {
         description, 
         sunriseZDT, 
         sunsetZDT,
-        name
+        name,
     }  
 };
 
@@ -73,9 +73,8 @@ export const formatForecastData = (forecastData) => {
         } else {
             currentDayValues.push(value);
         }
-        console.log(finalData);
     });
-
+    
     return {finalData};
 }
 
@@ -83,21 +82,29 @@ export const formatForecastDayData = (dayValues) => {
     let forecastHigh = undefined;
     let forecastLow = undefined;
     let weatherTypes = [];
+    let epoch = 0;
+    let date = "";
+    let day = "";
+    const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     dayValues.forEach((val, index) => {
-        const { main, weather } = val;
+        const { main, weather, dt } = val;
         const { temp_max, temp_min } = main;
         const timeSlotWeatherTypes = weather.map((weatherType) => {
-            const { main } = weatherType;
-            return main;
+            const { main, icon } = weatherType;
+            return {main, icon};
         });
         weatherTypes.push(...timeSlotWeatherTypes);
-        forecastHigh = Math.max(temp_max, forecastHigh ?? -1000);
-        forecastLow = Math.min(temp_min, forecastLow ?? 1000);
+        forecastHigh = Math.trunc(Math.max(temp_max, forecastHigh ?? -1000));
+        forecastLow = Math.trunc(Math.min(temp_min, forecastLow ?? 1000));
+        epoch = parseInt(dt * 1000);
+        date = new Date(epoch);
+        day = weekday[date.getDay()];
     });
     
     return {
         dayValues,
+        day,
         forecastHigh,
         forecastLow,
         weatherTypes,
