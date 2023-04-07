@@ -262,6 +262,7 @@ width: inherit;
   color: whitesmoke;
   background-color: var(--primary);
   z-index: 2;
+  user-select: none;
 }
 
 .input::placeholder {
@@ -304,6 +305,7 @@ width: inherit;
   padding: 10px 20px 20px 20px;
   color: rgba(240, 242, 243, 0.596);
   text-shadow: 1px 2px 3px rgba(11, 0, 0, 0.61);
+  user-select: none;
 }
 
 .forecast-content {

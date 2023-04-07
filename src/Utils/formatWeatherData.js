@@ -74,7 +74,7 @@ export const formatForecastData = (forecastData) => {
             currentDayValues.push(value);
         }
     });
-    
+    console.log(finalData)
     return {finalData};
 }
 
