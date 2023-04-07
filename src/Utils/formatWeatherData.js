@@ -27,6 +27,15 @@ export const formatWeatherData = (weatherData) => {
         ? sunsetRaw.format(DateTimeFormatter.ofPattern('hh:mm')) 
         : "";
 
+        // get day
+        const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        let epoch = 0;
+        let date = "";
+        let initialDay = "";
+        epoch = parseInt(dt * 1000);
+        date = new Date(epoch);
+        initialDay = weekday[date.getDay()];
+
     return {
         currentTemp, 
         highTemp, 
@@ -40,6 +49,7 @@ export const formatWeatherData = (weatherData) => {
         sunriseZDT, 
         sunsetZDT,
         name,
+        initialDay,
     }  
 };
 
@@ -51,7 +61,7 @@ export const formatForecastData = (forecastData) => {
         day2: {},
         day3: {},
         day4: {},
-        day5: {},
+        // day5: {},
     };
 
     let currentDayValues = [];

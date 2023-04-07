@@ -359,10 +359,6 @@ width: inherit;
 }
 
 .forecast-content__progress-bar > div {
-  /* width: 0%; */
-  /* margin-left: 19px; */
-  /* margin-right: 76px; */
-  /* width: calc(100% - 76px); */
   height: 100%;
   border-radius: 20px;
   background-image: linear-gradient(to right, lightskyblue, orange);
