@@ -57,10 +57,10 @@ export const formatForecastData = (forecastData) => {
     const { list = [] } = (forecastData ?? {});
     const finalData = {
         day0: {},
-        day1: {},
-        day2: {},
-        day3: {},
-        day4: {},
+        // day1: {},
+        // day2: {},
+        // day3: {},
+        // day4: {},
         // day5: {},
     };
 

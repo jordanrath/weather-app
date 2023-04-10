@@ -3,7 +3,7 @@ import React from 'react';
 const Forecast = ({ finalData, initialDay, lowTemp, highTemp }) => {
 console.log(finalData.day0)
 
-   
+   //make util function to take in href and  replacement jsx as values then background load file at href... if error return replacement jsx otherwise return img with props and href
 
     return (
         <>
@@ -72,7 +72,11 @@ console.log(finalData.day0)
                                     <div 
                                         style={{
                                             marginLeft: finalData[currentDay]?.forecastLow,
-                                            width: `calc(100% - (100px - ${finalData[currentDay]?.forecastHigh}px + ${finalData[currentDay]?.forecastLow}px))`
+                                            width: initialDay === finalData[currentDay]?.day 
+                                            ?
+                                            `calc(100% - (100px - ${highTemp}px + ${lowTemp}px))`
+                                            :
+                                            `calc(100% - (100px - ${finalData[currentDay]?.forecastHigh}px + ${finalData[currentDay]?.forecastLow}px))`
                                         }}>
                                     </div>
                                 </div>

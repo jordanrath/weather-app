@@ -383,6 +383,7 @@ width: inherit;
   color: whitesmoke;
   text-shadow: none;
   overflow-y: scroll;
+  /* overflow: hidden; */
   max-height: 400px;
   z-index: 1;
 }
