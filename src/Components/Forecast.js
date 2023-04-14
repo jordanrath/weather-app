@@ -1,9 +1,8 @@
 import React from 'react';
+import WeatherIcon from './WeatherIcon';
 
 const Forecast = ({ finalData, initialDay, lowTemp, highTemp }) => {
-console.log(finalData.day0)
-
-   //make util function to take in href and replacement jsx as values then background load file at href... if error return replacement jsx otherwise return img with props and href
+    const firstWeatherInfo = finalData.day0.weatherTypes?.[0];
 
     return (
         <>
@@ -14,6 +13,12 @@ console.log(finalData.day0)
                 <p className="forecast-content__day">
                     Today
                 </p>
+                <WeatherIcon 
+                    id={`${finalData.day0.day}-icon`.toLowerCase()}
+                    iconName={finalData.day0.weatherTypes?.[0].icon} 
+                    iconDisplayName={firstWeatherInfo.iconDisplayName}
+                    iconDescription=""
+                />
                 <p className='forecast-content__icon icon-text'><img src={`http://openweathermap.org/img/w/${finalData.day0.weatherTypes?.[0].icon}.png`} alt="Weather Icon" /></p>
                 <div className="forecast-content__range">
                     <p>{lowTemp}&deg;</p>
@@ -34,7 +39,12 @@ console.log(finalData.day0)
                             <p className="forecast-content__day">
                                 {(initialDay === finalData[currentDay]?.day ? "Today" : finalData[currentDay]?.day)}
                             </p>
-                            <p className='forecast-content__icon icon-text'><img src={`http://openweathermap.org/img/w/${finalData[currentDay].weatherTypes?.[0].icon}.png`} alt="Weather Icon" /></p>
+                            <WeatherIcon 
+                                id={`${finalData[currentDay].day}-icon`.toLowerCase()}
+                                iconName={finalData[currentDay].weatherTypes?.[0].icon} 
+                                iconDisplayName={firstWeatherInfo.iconDisplayName}
+                                iconDescription=""
+                            />
                             <div className="forecast-content__range">
                                 <p>
                                 {(initialDay === finalData[currentDay]?.day ? lowTemp : finalData[currentDay]?.forecastLow)}&deg;

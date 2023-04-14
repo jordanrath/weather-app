@@ -39,7 +39,7 @@ const WeatherIcon = (props) => {
         if (iconContent === PLACEHOLDER) {
           setFinalImageContent(iconPlaceholder);
         } else if (typeof iconContent === "string") {
-          setFinalImageContent({iconDisplay});
+          setFinalImageContent(iconDisplay);
         };
       });
     };

@@ -96,8 +96,8 @@ export const formatForecastDayData = (dayValues) => {
         const { main, weather, dt } = val;
         const { temp_max, temp_min } = main;
         const timeSlotWeatherTypes = weather.map((weatherType) => {
-            const { main, icon } = weatherType;
-            return {main, icon};
+            const { main: iconDisplayName, icon } = weatherType;
+            return {iconDisplayName, icon};
         });
         weatherTypes.push(...timeSlotWeatherTypes);
         forecastHigh = Math.trunc(Math.max(temp_max, forecastHigh ?? -1000));
