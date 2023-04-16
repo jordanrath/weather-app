@@ -8,7 +8,7 @@ const WeatherIcon = (props) => {
   const [finalImageContent, setFinalImageContent] = useState(null);
 
   const iconHref = useMemo(
-    () => (`http://openweathermap.org/img/w/${iconName}.png`), 
+    () => (`https://openweathermap.org/img/w/${iconName}.png`), 
     [iconName]
   );
 

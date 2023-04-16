@@ -4,9 +4,9 @@ export const imgLoader = ({ iconHref, iconPlaceholder }) => {
         img.onload = () => {
             resolve(iconHref);
         };
-        // img.onerror = () => {
-        //     reject(iconPlaceholder);
-        // };
+        img.onerror = () => {
+            reject(iconPlaceholder);
+        };
         img.src = iconHref;
     });
 };
