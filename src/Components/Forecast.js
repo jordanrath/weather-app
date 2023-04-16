@@ -6,7 +6,7 @@ const Forecast = ({ finalData, initialDay, lowTemp, highTemp }) => {
 
     return (
         <>
-            {(initialDay !== finalData?.day0.day 
+            {(initialDay !== finalData?.day0?.day 
             ?
             <>
                 <div className="forecast-content">
@@ -14,12 +14,11 @@ const Forecast = ({ finalData, initialDay, lowTemp, highTemp }) => {
                     Today
                 </p>
                 <WeatherIcon 
-                    id={`${finalData.day0.day}-icon`.toLowerCase()}
-                    iconName={finalData.day0.weatherTypes?.[0]?.icon} 
-                    iconDisplayName={firstWeatherInfo.iconDisplayName}
+                    id={`${finalData?.day0?.day}-icon`.toLowerCase()}
+                    iconName={finalData?.day0?.weatherTypes?.[0]?.icon} 
+                    iconDisplayName={firstWeatherInfo?.iconDisplayName}
                     iconDescription=""
                 />
-                
                 {/* <p className='forecast-content__icon icon-text'><img src={`http://openweathermap.org/img/w/${finalData.day0.weatherTypes?.[0].icon}.png`} alt="Weather Icon" /></p> */}
                 <div className="forecast-content__range">
                     <p>{lowTemp}&deg;</p>
@@ -34,20 +33,19 @@ const Forecast = ({ finalData, initialDay, lowTemp, highTemp }) => {
                     <p>{highTemp}&deg;</p>
                 </div>
                 </div>
-                {Object.keys(finalData).map((currentDay, key) => { console.log('icon', finalData[currentDay].weatherTypes?.[0].icon)
+                {Object.keys(finalData).map((currentDay, key) => {
                     return (   
                         <div key={key} className="forecast-content">
                             <p className="forecast-content__day">
                                 {(initialDay === finalData[currentDay]?.day ? "Today" : finalData[currentDay]?.day)}
                             </p>
                             <WeatherIcon 
-                                id={`${finalData[currentDay].day}-icon`.toLowerCase()}
+                                id={`${finalData[currentDay]?.day}-icon`.toLowerCase()}
                                 iconName={finalData[currentDay]?.weatherTypes?.[0]?.icon} 
                                 iconDisplayName={firstWeatherInfo?.iconDisplayName}
                                 iconDescription=""
                             />
                             {/* <p className='forecast-content__icon icon-text'><img src={`http://openweathermap.org/img/w/${finalData[currentDay].weatherTypes?.[0].icon}.png`} alt="Weather Icon" /></p> */}
-
                             <div className="forecast-content__range">
                                 <p>
                                 {(initialDay === finalData[currentDay]?.day ? lowTemp : finalData[currentDay]?.forecastLow)}&deg;
@@ -77,7 +75,7 @@ const Forecast = ({ finalData, initialDay, lowTemp, highTemp }) => {
                                 {(initialDay === finalData[currentDay]?.day ? "Today" : finalData[currentDay]?.day)}
                             </p>
                             <WeatherIcon 
-                                id={`${finalData[currentDay].day}-icon`.toLowerCase()}
+                                id={`${finalData[currentDay]?.day}-icon`.toLowerCase()}
                                 iconName={finalData[currentDay]?.weatherTypes?.[0]?.icon} 
                                 iconDisplayName={firstWeatherInfo?.iconDisplayName}
                                 iconDescription=""
@@ -93,9 +91,9 @@ const Forecast = ({ finalData, initialDay, lowTemp, highTemp }) => {
                                             marginLeft: finalData[currentDay]?.forecastLow,
                                             width: initialDay === finalData[currentDay]?.day 
                                             ?
-                                            `calc(100% - (100px - ${highTemp}px + ${lowTemp}px))`
+                                            `calc(100% - ((100px - ${highTemp}px + 5px) + (${lowTemp}px - 5px)))`
                                             :
-                                            `calc(100% - (100px - ${finalData[currentDay]?.forecastHigh}px + ${finalData[currentDay]?.forecastLow}px))`
+                                            `calc(100% - (100px - (${finalData[currentDay]?.forecastHigh}px + 5px) + (${finalData[currentDay]?.forecastLow}px - 5px)))`
                                         }}>
                                     </div>
                                 </div>

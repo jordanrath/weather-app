@@ -42,15 +42,16 @@ const WeatherIcon = (props) => {
         if (iconContent === PLACEHOLDER) {
           setFinalImageContent(iconPlaceholder);
         } else if (typeof iconContent === "string") {
-          setFinalImageContent(iconDisplay); console.log('FINALssss', iconDisplay)
+          setFinalImageContent(iconDisplay);
         };
       });
     };
   }, [finalImageContent, iconPlaceholder, iconDisplay, iconHref]);
-console.log('FINAL', finalImageContent)
+
   return (
     <>
       {finalImageContent === null ? <div className='placeholder'></div> : finalImageContent}
+      {/* {finalImageContent} */}
     </>
   )
 };
