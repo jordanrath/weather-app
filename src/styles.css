@@ -11,22 +11,11 @@ html {
   scroll-behavior: smooth;
 }
 
-.background.clouds-night,
-.background.rain-night,
-.background.snow-night {
-  background-color: rgb(83,83,83);
-}
-
-.background.clear-night {
-  background-color: #2a2a35;
-}
-
 #root {
   height: inherit;
   width: inherit;
   margin: 0;
   padding: 0;
-  background-color: rgb(122, 206, 255);
 }
 
 body {
