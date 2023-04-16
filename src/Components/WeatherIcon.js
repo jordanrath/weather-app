@@ -22,15 +22,18 @@ const WeatherIcon = (props) => {
   ), [iconDisplayName, iconDescription, id]);
 
   const iconDisplay = useMemo(() => {
-    <>
-      <label id={`${id}-label`}>{iconDescription}</label>
-      <img 
-        id={`${id}-img`}
-        src={iconHref}
-        aria-describedby={`${id}-label`}
-        alt={iconDisplayName}
-      />
-    </>
+    return (
+      <>
+        <label id={`${id}-label`}>{iconDescription}</label>
+        <img 
+          id={`${id}-img`}
+          src={iconHref}
+          aria-describedby={`${id}-label`}
+          alt={iconDisplayName}
+          className='forecast-content__icon'
+        />
+      </>
+    )
   }, [iconDescription, iconDisplayName, iconHref, id]);
 
   useEffect(() => {
@@ -39,15 +42,15 @@ const WeatherIcon = (props) => {
         if (iconContent === PLACEHOLDER) {
           setFinalImageContent(iconPlaceholder);
         } else if (typeof iconContent === "string") {
-          setFinalImageContent(iconDisplay);
+          setFinalImageContent(iconDisplay); console.log('FINALssss', iconDisplay)
         };
       });
     };
   }, [finalImageContent, iconPlaceholder, iconDisplay, iconHref]);
-
+console.log('FINAL', finalImageContent)
   return (
     <>
-      ({finalImageContent === null ? <div className='placeholder'></div> : finalImageContent})
+      {finalImageContent === null ? <div className='placeholder'></div> : finalImageContent}
     </>
   )
 };

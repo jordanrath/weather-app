@@ -3,7 +3,7 @@ import WeatherIcon from './WeatherIcon';
 
 const Forecast = ({ finalData, initialDay, lowTemp, highTemp }) => {
     const firstWeatherInfo = finalData.day0.weatherTypes?.[0];
-console.log(firstWeatherInfo?.iconDisplayName)
+
     return (
         <>
             {(initialDay !== finalData?.day0.day 
@@ -13,14 +13,14 @@ console.log(firstWeatherInfo?.iconDisplayName)
                 <p className="forecast-content__day">
                     Today
                 </p>
-                {/* <WeatherIcon 
+                <WeatherIcon 
                     id={`${finalData.day0.day}-icon`.toLowerCase()}
-                    iconName={finalData.day0.weatherTypes?.[0].icon} 
+                    iconName={finalData.day0.weatherTypes?.[0]?.icon} 
                     iconDisplayName={firstWeatherInfo.iconDisplayName}
                     iconDescription=""
-                /> */}
+                />
                 
-                <p className='forecast-content__icon icon-text'><img src={`http://openweathermap.org/img/w/${finalData.day0.weatherTypes?.[0].icon}.png`} alt="Weather Icon" /></p>
+                {/* <p className='forecast-content__icon icon-text'><img src={`http://openweathermap.org/img/w/${finalData.day0.weatherTypes?.[0].icon}.png`} alt="Weather Icon" /></p> */}
                 <div className="forecast-content__range">
                     <p>{lowTemp}&deg;</p>
                     <div className="forecast-content__progress-bar">
@@ -34,19 +34,19 @@ console.log(firstWeatherInfo?.iconDisplayName)
                     <p>{highTemp}&deg;</p>
                 </div>
                 </div>
-                {Object.keys(finalData).map((currentDay, key) => {
+                {Object.keys(finalData).map((currentDay, key) => { console.log('icon', finalData[currentDay].weatherTypes?.[0].icon)
                     return (   
                         <div key={key} className="forecast-content">
                             <p className="forecast-content__day">
                                 {(initialDay === finalData[currentDay]?.day ? "Today" : finalData[currentDay]?.day)}
                             </p>
-                            {/* <WeatherIcon 
+                            <WeatherIcon 
                                 id={`${finalData[currentDay].day}-icon`.toLowerCase()}
-                                iconName={finalData[currentDay].weatherTypes?.[0].icon} 
-                                iconDisplayName={firstWeatherInfo.iconDisplayName}
+                                iconName={finalData[currentDay]?.weatherTypes?.[0]?.icon} 
+                                iconDisplayName={firstWeatherInfo?.iconDisplayName}
                                 iconDescription=""
-                            /> */}
-                                                        <p className='forecast-content__icon icon-text'><img src={`http://openweathermap.org/img/w/${finalData[currentDay].weatherTypes?.[0].icon}.png`} alt="Weather Icon" /></p>
+                            />
+                            {/* <p className='forecast-content__icon icon-text'><img src={`http://openweathermap.org/img/w/${finalData[currentDay].weatherTypes?.[0].icon}.png`} alt="Weather Icon" /></p> */}
 
                             <div className="forecast-content__range">
                                 <p>
@@ -76,7 +76,13 @@ console.log(firstWeatherInfo?.iconDisplayName)
                             <p className="forecast-content__day">
                                 {(initialDay === finalData[currentDay]?.day ? "Today" : finalData[currentDay]?.day)}
                             </p>
-                            <p className='forecast-content__icon icon-text'><img src={`http://openweathermap.org/img/w/${finalData[currentDay].weatherTypes?.[0].icon}.png`} alt="Weather Icon" /></p>
+                            <WeatherIcon 
+                                id={`${finalData[currentDay].day}-icon`.toLowerCase()}
+                                iconName={finalData[currentDay]?.weatherTypes?.[0]?.icon} 
+                                iconDisplayName={firstWeatherInfo?.iconDisplayName}
+                                iconDescription=""
+                            />
+                            {/* <p className='forecast-content__icon icon-text'><img src={`http://openweathermap.org/img/w/${finalData[currentDay].weatherTypes?.[0].icon}.png`} alt="Weather Icon" /></p> */}
                             <div className="forecast-content__range">
                                 <p>
                                 {(initialDay === finalData[currentDay]?.day ? lowTemp : finalData[currentDay]?.forecastLow)}&deg;
