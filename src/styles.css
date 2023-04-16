@@ -11,6 +11,16 @@ html {
   scroll-behavior: smooth;
 }
 
+html .background.clouds-night,
+html .background.rain-night,
+html .background.snow-night {
+  background-color: rgb(83,83,83);
+}
+
+html .background.clear-night {
+  background-color: #2a2a35;
+}
+
 .background.clouds-night#root,
 .background.rain-night#root,
 .background.snow-night#root {
