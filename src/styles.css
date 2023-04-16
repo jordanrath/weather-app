@@ -9,6 +9,7 @@ html {
   height: 100vh;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  background-color: rgb(122, 206, 255);
 }
 
 html .background.clouds-night,
