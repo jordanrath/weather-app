@@ -9,26 +9,15 @@ html {
   height: 100vh;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  background-color: rgb(122, 206, 255);
 }
 
-html .background.clouds-night,
-html .background.rain-night,
-html .background.snow-night {
+.background.clouds-night,
+.background.rain-night,
+.background.snow-night {
   background-color: rgb(83,83,83);
 }
 
-html .background.clear-night {
-  background-color: #2a2a35;
-}
-
-.background.clouds-night#root,
-.background.rain-night#root,
-.background.snow-night#root {
-  background-color: rgb(83,83,83);
-}
-
-.background.clear-night#root {
+.background.clear-night {
   background-color: #2a2a35;
 }
 
