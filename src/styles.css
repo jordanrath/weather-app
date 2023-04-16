@@ -397,8 +397,8 @@ img.forecast-content__icon  {
     0 4px 6px 1px rgb(17 20 24 / 20%);
   color: whitesmoke;
   text-shadow: none;
+  scrollbar-width: none;
   overflow-y: scroll;
-  /* overflow: hidden; */
   max-height: 400px;
   z-index: 1;
 }

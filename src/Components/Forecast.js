@@ -1,11 +1,22 @@
 import React from 'react';
 import WeatherIcon from './WeatherIcon';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Forecast = ({ finalData, initialDay, lowTemp, highTemp }) => {
+const Forecast = ({ 
+    finalData, 
+    initialDay, 
+    lowTemp, 
+    highTemp 
+}) => {
+    
     const firstWeatherInfo = finalData.day0.weatherTypes?.[0];
 
     return (
-        <>
+        <div className="forecast-container">
+            <div className="forecast-title">
+                    <FontAwesomeIcon icon="fa-regular fa-calendar-days" />
+                    5-DAY FORECAST
+            </div>
             {(initialDay !== finalData?.day0?.day 
             ?
             <>
@@ -106,7 +117,7 @@ const Forecast = ({ finalData, initialDay, lowTemp, highTemp }) => {
                 )}
             </>
             )}
-        </>
+        </div>
     )
 };
 
