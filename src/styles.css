@@ -9,6 +9,17 @@ html {
   height: 100vh;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  background-color: rgb(122, 206, 255);
+}
+
+.background.clouds-night html,
+.background.rain-night html,
+.background.snow-night html {
+  background-color: rgb(83,83,83);
+}
+
+.background.clear-night html {
+  background-color: #2a2a35;
 }
 
 #root {
@@ -98,13 +109,23 @@ p {
 }
 
 .background {
-  background-color: #d3edf8;
+  background-color: rgb(122, 206, 255);
   display: flex;
   height: inherit;
   justify-content: center;
   align-items: center;
   padding: 0;
   margin: 0;
+}
+
+.background.clouds-night.background,
+.background.rain-night.background,
+.background.snow-night.background {
+  background-color: rgb(83,83,83);
+}
+
+.background.clear-night.background {
+  background-color: #2a2a35;
 }
 
 .background.clear {
