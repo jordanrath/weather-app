@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { pageState } from '../pageState';
 import classNames from 'classnames';
 import { formatWeatherData, formatForecastData } from '../Utils/formatWeatherData';
-import Forecast from './Forecast';
+import WeatherForecast from './WeatherForecast';
 import WeatherOverview from './WeatherOverview';
 import WeatherDetails from './WeatherDetails';
 
@@ -40,7 +40,7 @@ const Weather = ({ weatherData = null, forecastData = null, loadingState = pageS
     });
 
     return (
-        <div className='app-container' data-aos="fade-in">
+        <div className='app-container'>
             <WeatherOverview 
                 name={name} 
                 boxClass={boxClass} 
@@ -51,7 +51,7 @@ const Weather = ({ weatherData = null, forecastData = null, loadingState = pageS
                 lowTemp={lowTemp}
                 setData={setData}    
             />
-            <Forecast 
+            <WeatherForecast 
                 finalData={finalData} 
                 initialDay={initialDay} 
                 lowTemp={lowTemp} 
@@ -68,7 +68,7 @@ const Weather = ({ weatherData = null, forecastData = null, loadingState = pageS
                 visibile={visibile} 
             />
         </div>
-  )
+    )
 };
 
 export default Weather;

@@ -13,7 +13,7 @@ const WeatherDetails = ({
 }) => {
     
   return (
-    <div className='box-container'>
+    <div className='box-container' data-aos="fade-in" >
         <div className='box'>
             <p className='icon-text'><FontAwesomeIcon className='icon' icon="fa-solid fa-sun" /> 
                 SUNRISE
@@ -69,4 +69,4 @@ const WeatherDetails = ({
   )
 }
 
-export default WeatherDetails
+export default WeatherDetails;

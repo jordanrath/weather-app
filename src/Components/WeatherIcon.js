@@ -49,10 +49,9 @@ const WeatherIcon = (props) => {
   }, [finalImageContent, iconPlaceholder, iconDisplay, iconHref]);
 
   return (
-    <>
+    <div data-aos="fade-in" >
       {finalImageContent === null ? <div className='placeholder'></div> : finalImageContent}
-      {/* {finalImageContent} */}
-    </>
+    </div>
   )
 };
 
