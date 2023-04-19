@@ -12,7 +12,7 @@ const Forecast = ({
     const firstWeatherInfo = finalData.day0.weatherTypes?.[0];
 
     return (
-        <div className="forecast-container" data-aos="fade-in" >
+        <div className="forecast-container">
             <div className="forecast-title">
                     <FontAwesomeIcon icon="fa-regular fa-calendar-days" />
                     5-DAY FORECAST

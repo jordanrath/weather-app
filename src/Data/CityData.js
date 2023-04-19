@@ -8,7 +8,7 @@ const getInitialData = async () => {
 };
 
 const cleanCityName = (cityNameRaw) => (
-    (typeof cityNameRaw === "string" ? cityNameRaw.trim().toLowerCase() : "")
+    (typeof cityNameRaw === "string" ? cityNameRaw.replaceAll(/[^a-zA-Z]+/g, "").toLowerCase() : "")
 );
 
 const joinCityName = (cityName) => (
@@ -19,7 +19,7 @@ const filterCityName = ((cityInfo, cityName) => {
     const { name = "", state = "", country = "" } = cityInfo;
 
     const dataValue = `${name}${state}${country}`.toLowerCase();    
-
+    
     return dataValue.startsWith(cityName);
 });
 

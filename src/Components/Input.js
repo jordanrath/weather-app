@@ -6,7 +6,6 @@ import { Popper } from 'react-popper';
 
 const { findByCityName } = functions;
 
-// add dropdown to display options for locations with same name
 // add useState location to check what is typed into the input... special characters, max length, min length, etc...
 const Input = ({ setData = () => {} }) => {
   const [inputValue, setInputValue] = useState('');
