@@ -33,7 +33,7 @@ export const getWeatherData = async (query) => {
         weatherData = await parseWeatherData(weatherDataResponse?.value?.json());
         forecastData = await parseForecastData(forecastDataResponse?.value?.json());
     }
-        // console.log('weatherData', weatherData, 'forecastData', forecastData)
+        console.log('weatherData', weatherData, 'forecastData', forecastData)
         return {weatherData, forecastData};
 }
 
