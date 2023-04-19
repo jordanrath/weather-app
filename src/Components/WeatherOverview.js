@@ -13,7 +13,7 @@ const WeatherOverview = ({
 }) => {
   
     return (
-    <div className='weather-container' data-aos="fade-in" >
+    <div className='weather-container'>
         <div className='current-container'>
             <div className='name-temp'>
                 <h2>{name}</h2>
