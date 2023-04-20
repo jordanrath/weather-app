@@ -342,6 +342,7 @@ width: inherit;
 
 img.forecast-content__icon  {
   width: 40px;
+  height: 40px;
   user-select: none;
 }
 

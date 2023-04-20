@@ -1,4 +1,4 @@
-import { DateTimeFormatter, DayOfWeek, Duration, Instant, ZonedDateTime, ZoneId, ZoneOffset } from "@js-joda/core";
+import { DateTimeFormatter, Duration, Instant, ZonedDateTime, ZoneId, ZoneOffset } from "@js-joda/core";
 
     // get initial lat lon of user for first api fetch
     const getInitialLatLon = async () => {
