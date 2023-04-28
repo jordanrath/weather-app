@@ -36,7 +36,7 @@ const Input = ({ setData = () => {} }) => {
   const [rateLimitedInputValue] = useDebounce(inputValue, 300);
 
   useEffect(() => {
-    findByCityName(rateLimitedInputValue).then((newMatches) => {
+      findByCityName(rateLimitedInputValue).then((newMatches) => {
       setMatches(newMatches);
     });
   }, [rateLimitedInputValue]);

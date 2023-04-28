@@ -11,16 +11,13 @@ const cleanCityName = (cityNameRaw) => (
     (typeof cityNameRaw === "string" ? cityNameRaw.replaceAll(/[^a-zA-Z]+/g, "").toLowerCase() : "")
 );
 
-const joinCityName = (cityName) => (
-    cityName.split(" ").join()
-);
-
 const filterCityName = ((cityInfo, cityName) => {
     const { name = "", state = "", country = "" } = cityInfo;
 
     const dataValue = `${name}${state}${country}`.toLowerCase();    
-    
-    return dataValue.startsWith(cityName);
+    const finalDataValue = cleanCityName(dataValue);
+
+    return finalDataValue.startsWith(cityName);
 });
 
 const sortCityName = ((cityDataA, cityDataB) => {
@@ -34,27 +31,27 @@ const sortCityName = ((cityDataA, cityDataB) => {
         const countryComp = countryA.toLowerCase().localeCompare(countryB.toLowerCase());
         if (countryComp === 0) {
             return stateA.toLowerCase().localeCompare(stateB.toLowerCase());
-        } 
+        }
         return countryComp;
-    }   
+    }
     return nameComp;
  });
 
 const findByCityName = async (cityNameRaw) => {
 
     //validate and clean user input
-    const cityName = joinCityName(cleanCityName(cityNameRaw));
-    
+    const cityName = cleanCityName(cityNameRaw);
+
     if (cityName === "") {
         return [];
     };
 
     // load contents of json file into memory
     const cityData = await getInitialData();
-
+    
     //filter json data based off user input
     const matches = cityData.filter((cityInfo) => filterCityName(cityInfo, cityName));
-
+    
     //apply sorts to results
     const sortedMatches = matches.sort(sortCityName);
 

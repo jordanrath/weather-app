@@ -382,6 +382,15 @@ img.forecast-content__icon  {
   background-size: 100px 100%;
 }
 
+/* .forecast-content__progress-bar > div::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  background-color: red;
+  position: absolute;
+  right: 100;
+} */
+
 .popper {
   position: absolute;
   /* transition: all 0.5s; */
