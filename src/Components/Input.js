@@ -88,6 +88,6 @@ const Input = ({ setData = () => {} }) => {
             </Popper>
     </form>
   )
-}
+};
 
 export default Input
