@@ -32,6 +32,6 @@ const Background = (props) => {
         {children}
     </div>
   )
-}
+};
 
 export default Background;
